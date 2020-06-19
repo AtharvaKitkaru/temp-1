@@ -35,7 +35,7 @@ class AssignmentList extends Component {
             <AssignmentCard />
           </div>
         </div>
-        <div id="notifications-container" className="col-12 col-lg-4">
+        <div id="notifications-container" className="col-12 col-lg-4 mb-4">
           <div
             className="shadow rounded p-1 mt-2 mb-4"
             style={{ background: "rgb(183, 32, 46)", color: "white" }}
