@@ -14,6 +14,7 @@ class Container extends Component {
           event.preventDefault()
         )}
         <Header />
+        <div style={{ margin: "6em" }}></div>
         <Switch>
           <Route path="/assignments" component={AssignmentList} />
           <Route path="/assignment/:id" component={AssignmentDetails} />
