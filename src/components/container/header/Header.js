@@ -18,10 +18,27 @@ class Header extends Component {
       dropdownOpen: false,
     };
   }
+  componentDidMount() {
+    let previousScrollPosition = window.pageYOffset;
+    window.onscroll = () => {
+      let currentScrollPosition = window.pageYOffset;
+      if (currentScrollPosition > $("#header").height() / 3) {
+        if (currentScrollPosition < previousScrollPosition) {
+          $("#header").slideDown();
+        } else if (
+          !$("#header").is(":hover") &&
+          !$(".dropdown-menu").is(":hover")
+        ) {
+          $("#header").slideUp();
+        }
+      }
+      previousScrollPosition = currentScrollPosition;
+    };
+  }
   toggle = () => this.setState({ dropdownOpen: !this.state.dropdownOpen });
   render() {
     return (
-      <div id="header" className="sticky-top bg-white shadow-sm noselect mb-4">
+      <div id="header" className="bg-white shadow-sm noselect mb-4">
         <Navbar light className="col-lg-12 mx-auto">
           <NavbarBrand>
             <Link to="/">

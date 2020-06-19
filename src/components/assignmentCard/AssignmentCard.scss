@@ -3,4 +3,11 @@
   a {
     text-decoration: none;
   }
+
+  &:hover {
+    .card-header {
+      background-color: rgba(240, 230, 140, 0.226);
+      transition: all 600ms ease;
+    }
+  }
 }

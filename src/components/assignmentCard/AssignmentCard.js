@@ -10,7 +10,7 @@ class AssignmentCard extends Component {
         <Link to="assignment/:id">
           <div className="card shadow-sm" style={{ width: "", border: "none" }}>
             <div
-              className="card-header card-title text-justify my-auto"
+              className="card-header text-select card-title text-justify my-auto"
               style={{
                 borderBottom: "0.1em solid rgb(183, 32, 46)",
                 fontSize: "1em",
