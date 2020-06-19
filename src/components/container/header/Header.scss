@@ -1,3 +1,10 @@
+#header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1038;
+}
+
 .dropdown-menu {
   background-color: white;
   border: none;
