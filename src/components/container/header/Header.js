@@ -8,6 +8,7 @@ import {
   DropdownMenu,
 } from "reactstrap";
 import "./Header.scss";
+import $ from "jquery";
 import { Link } from "react-router-dom";
 
 class Header extends Component {
@@ -20,7 +21,7 @@ class Header extends Component {
   toggle = () => this.setState({ dropdownOpen: !this.state.dropdownOpen });
   render() {
     return (
-      <div id="header" className="shadow-sm noselect mb-4">
+      <div id="header" className="sticky-top bg-white shadow-sm noselect mb-4">
         <Navbar light className="col-lg-12 mx-auto">
           <NavbarBrand>
             <Link to="/">
