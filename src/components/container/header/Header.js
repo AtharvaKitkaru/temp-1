@@ -78,6 +78,12 @@ class Header extends Component {
               />
             </DropdownToggle>
             <DropdownMenu right className="shadow-sm">
+              <a className="d-md-none d-block" href="/notifications">
+                <DropdownItem>
+                  <i className="fa fa-fw mr-2 fa-bell fa-sm" />
+                  Notifications
+                </DropdownItem>
+              </a>
               <Link to="/assignments">
                 <DropdownItem>
                   <i className="fa fa-fw mr-2 fa-book fa-sm" />
