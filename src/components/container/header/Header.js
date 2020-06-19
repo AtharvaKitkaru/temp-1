@@ -36,7 +36,6 @@ class Header extends Component {
       previousScrollPosition = currentScrollPosition;
     };
   }
-  toggle = () => this.setState({ dropdownOpen: !this.state.dropdownOpen });
   render() {
     return (
       <div id="header" className="bg-white shadow-sm noselect mb-4">
@@ -45,19 +44,24 @@ class Header extends Component {
             <Link to="/">
               <img
                 className="d-md-block d-none"
-                src="assets/images/somaiyaLogoCropped.png"
+                src="/assets/images/somaiyaLogoCropped.png"
                 alt="Project Portal"
                 width={140}
               />
               <img
                 className="d-md-none"
-                src="assets/images/somaiyaLogoShort.png"
+                src="/assets/images/somaiyaLogoShort.png"
                 alt="Project Portal"
                 width={60}
               />
             </Link>
           </NavbarBrand>
-          <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
+          <Dropdown
+            isOpen={this.state.dropdownOpen}
+            toggle={() =>
+              this.setState({ dropdownOpen: !this.state.dropdownOpen })
+            }
+          >
             <DropdownToggle
               style={{
                 background: "none",
@@ -67,7 +71,7 @@ class Header extends Component {
               }}
             >
               <img
-                src="assets/images/user.jpeg"
+                src="/assets/images/user.jpeg"
                 className="rounded-circle"
                 width={50}
                 height={50}

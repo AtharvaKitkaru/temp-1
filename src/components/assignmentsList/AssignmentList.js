@@ -39,12 +39,17 @@ class AssignmentList extends Component {
             <i className="fa fa-bell fa-fw mr-1" />
             Notifications
           </div>
-          <Notifications />
-          <Notifications />
-          <Notifications />
-          <Notifications />
-          <Notifications />
-          <Notifications />
+          <div
+            id="notification-list"
+            className="list-group list-group-flush shadow-sm p-1 rounded"
+          >
+            <Notifications />
+            <Notifications />
+            <Notifications />
+            <Notifications />
+            <Notifications />
+            <Notifications />
+          </div>
         </div>
       </div>
     );

@@ -7,7 +7,7 @@ class AssignmentCard extends Component {
   render() {
     return (
       <div id="assignment-card" className="col-md-6 col-12 p-3">
-        <Link to="assignment/:id">
+        <Link to="/assignment/:id">
           <div className="card shadow-sm" style={{ width: "", border: "none" }}>
             <div
               className="card-header text-select card-title text-justify my-auto"
