@@ -30,6 +30,7 @@ class Header extends Component {
           !$(".dropdown-menu").is(":hover")
         ) {
           $("#header").slideUp();
+          $(".dropdown-menu").removeClass("show");
         }
       }
       previousScrollPosition = currentScrollPosition;
