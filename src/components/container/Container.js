@@ -46,7 +46,7 @@ class Container extends Component {
               </div>
             </div>
           </Route>
-          <Route render={() => <Redirect to="/" />} />
+          <Route render={() => <Redirect to="/assignments" />} />
         </Switch>
         <Footer />
       </div>
