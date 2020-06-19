@@ -21,7 +21,7 @@ class Container extends Component {
           <Route path="/logout" render={() => alert("Signed out")} />
           <Route render={() => <Redirect to="/" />} />
         </Switch>
-        {/* <Footer /> */}
+        <Footer />
       </div>
     );
   }

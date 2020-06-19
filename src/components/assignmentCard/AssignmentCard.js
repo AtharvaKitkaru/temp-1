@@ -5,15 +5,12 @@ class AssignmentCard extends Component {
   state = {};
   render() {
     return (
-      <div id="assignment-card col-12">
-        <div
-          className="card col-12 shadow-sm"
-          style={{ width: "auto", border: "none" }}
-        >
+      <div id="assignment-card" className="col-md-6 col-12 p-3">
+        <div className="card shadow-sm" style={{ width: "", border: "none" }}>
           <div
-            className="card-header card-title text-justify my-auto"
+            className="card-header force-select card-title text-justify my-auto"
             style={{
-              borderBottom: "0.1em solid red",
+              borderBottom: "0.1em solid rgb(183, 32, 46)",
               fontSize: "1em",
               fontWeight: "700",
               color: "#454344",
