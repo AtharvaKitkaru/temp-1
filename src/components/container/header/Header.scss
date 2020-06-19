@@ -6,6 +6,7 @@
 }
 
 .dropdown-menu {
+  display: block;
   background-color: white;
   border: none;
   outline: none;
@@ -27,4 +28,20 @@
   a {
     text-decoration: none;
   }
+}
+
+.dropdown-menu {
+  display: block;
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(-0.4em);
+  transition: 300ms ease all;
+}
+
+.dropdown-menu.show {
+  display: block;
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+  transition: 300ms ease all;
 }
