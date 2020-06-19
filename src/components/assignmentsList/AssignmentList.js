@@ -25,6 +25,18 @@ class AssignmentList extends Component {
             <AssignmentCard />
             <AssignmentCard />
             <AssignmentCard />
+            <AssignmentCard />
+            <AssignmentCard />
+            <AssignmentCard />
+            <AssignmentCard />
+            <AssignmentCard />
+            <AssignmentCard />
+            <AssignmentCard />
+            <AssignmentCard />
+            <AssignmentCard />
+            <AssignmentCard />
+            <AssignmentCard />
+            <AssignmentCard />
           </div>
         </div>
         <div className="col-12 col-lg-4">
