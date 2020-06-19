@@ -25,24 +25,28 @@ class Header extends Component {
       if (currentScrollPosition > $("#header").height() / 3) {
         if (currentScrollPosition < previousScrollPosition) {
           $("#header").slideDown();
-          $("#assignment-list > #notifications-container").css({
-            transform: "translateY(0em)",
-          });
-          $(
-            "#assignment-list > #notifications-container > #notification-list"
-          ).css({ height: "70vh" });
+          if ($(window).width() >= 1200) {
+            $("#assignment-list > #notifications-container").css({
+              transform: "translateY(0em)",
+            });
+            $(
+              "#assignment-list > #notifications-container > #notification-list"
+            ).css({ height: "70vh" });
+          }
         } else if (
           !$("#header").is(":hover") &&
           !$(".dropdown-menu").is(":hover")
         ) {
           $("#header").slideUp();
           $(".dropdown-menu").removeClass("show");
-          $("#assignment-list > #notifications-container").css({
-            transform: "translateY(-4em)",
-          });
-          $(
-            "#assignment-list > #notifications-container > #notification-list"
-          ).css({ height: "76vh" });
+          if ($(window).width() >= 1200) {
+            $("#assignment-list > #notifications-container").css({
+              transform: "translateY(-4em)",
+            });
+            $(
+              "#assignment-list > #notifications-container > #notification-list"
+            ).css({ height: "76vh" });
+          }
         }
       }
       previousScrollPosition = currentScrollPosition;
