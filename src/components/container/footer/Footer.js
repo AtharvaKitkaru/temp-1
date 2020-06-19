@@ -8,7 +8,7 @@ class Footer extends Component {
         <div className="container noselect text-center">
           <span>
             <img
-              src="assets/images/somaiyaLogoShort.png"
+              src="/assets/images/somaiyaLogoShort.png"
               alt="KJSCE"
               width={26}
               className="mr-2 pb-1"

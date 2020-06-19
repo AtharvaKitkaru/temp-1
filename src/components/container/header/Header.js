@@ -40,21 +40,19 @@ class Header extends Component {
     return (
       <div id="header" className="bg-white shadow-sm noselect mb-4">
         <Navbar light className="col-lg-12 mx-auto">
-          <NavbarBrand>
-            <Link to="/">
-              <img
-                className="d-md-block d-none"
-                src="/assets/images/somaiyaLogoCropped.png"
-                alt="Project Portal"
-                width={140}
-              />
-              <img
-                className="d-md-none"
-                src="/assets/images/somaiyaLogoShort.png"
-                alt="Project Portal"
-                width={60}
-              />
-            </Link>
+          <NavbarBrand href="/">
+            <img
+              className="d-md-block d-none"
+              src="/assets/images/somaiyaLogoCropped.png"
+              alt="Project Portal"
+              width={140}
+            />
+            <img
+              className="d-md-none"
+              src="/assets/images/somaiyaLogoShort.png"
+              alt="Project Portal"
+              width={60}
+            />
           </NavbarBrand>
           <Dropdown
             isOpen={this.state.dropdownOpen}

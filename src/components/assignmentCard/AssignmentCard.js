@@ -3,7 +3,6 @@ import "./AssignmentCard.scss";
 import { Link } from "react-router-dom";
 
 class AssignmentCard extends Component {
-  state = {};
   render() {
     return (
       <div id="assignment-card" className="col-md-6 col-12 p-3">
@@ -20,7 +19,7 @@ class AssignmentCard extends Component {
             >
               Assignment Name
             </div>
-            <div class="card-body col-12 card-text text-muted text-left">
+            <div className="card-body col-12 card-text text-muted text-left">
               <div className="" style={{ fontSize: "0.8em" }}>
                 <div className="row">
                   <div className="col-6">

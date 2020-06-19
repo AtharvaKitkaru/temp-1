@@ -2,8 +2,12 @@ import React, { Component } from "react";
 import "./AssignmentList.scss";
 import Notifications from "../notifications/Notifications";
 import AssignmentCard from "../assignmentCard/AssignmentCard";
+import $ from "jquery";
 
 class AssignmentList extends Component {
+  componentWillUnmount() {
+    $("#header").css({ display: "" });
+  }
   render() {
     return (
       <div
