@@ -1,0 +1,12 @@
+#assignment-list {
+  #notifications-container {
+    transition: all 600ms ease;
+    position: sticky;
+    top: 6em;
+    height: 70vh;
+    #notification-list {
+      height: 70vh;
+      overflow: auto;
+    }
+  }
+}
