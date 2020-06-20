@@ -25,7 +25,7 @@ class Header extends Component {
       if (currentScrollPosition > $("#header").height() / 3) {
         if (currentScrollPosition < previousScrollPosition) {
           $("#header").slideDown();
-          if ($(window).width() >= 1200) {
+          if ($(window).width() >= 992) {
             $("#assignment-list > #notifications-container").css({
               transform: "translateY(0em)",
             });
@@ -39,7 +39,7 @@ class Header extends Component {
         ) {
           $("#header").slideUp();
           $(".dropdown-menu").removeClass("show");
-          if ($(window).width() >= 1200) {
+          if ($(window).width() >= 992) {
             $("#assignment-list > #notifications-container").css({
               transform: "translateY(-4em)",
             });
