@@ -6,14 +6,34 @@ import AssignmentList from "../assignmentsList/AssignmentList";
 import AssignmentDetails from "../assignmentDetails/AssignmentDetails";
 import Grades from "../grades/Grades";
 import Notifications from "../notifications/Notifications";
+import TopBarProgress from "react-topbar-progress-indicator";
+
+TopBarProgress.config({
+  barColors: {
+    "0": "rgb(183, 32, 46)",
+    "0.5": "white",
+    "1.0": "white",
+  },
+  shadowBlur: 5,
+});
 
 class Container extends Component {
+  constructor() {
+    super();
+    this.state = {
+      loading: true,
+    };
+  }
+  componentDidMount() {
+    setTimeout(() => this.setState({ loading: !this.state.loading }), 8000);
+  }
   render() {
     return (
       <div id="app-container">
         {document.addEventListener("contextmenu", (event) =>
           event.preventDefault()
         )}
+        {this.state.loading && <TopBarProgress />}
         <Header />
         <div style={{ margin: "6em" }}></div>
         <Switch>
