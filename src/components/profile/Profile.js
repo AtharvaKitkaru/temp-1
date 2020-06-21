@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./Profile.scss";
 import { Modal } from "react-bootstrap";
+import $ from "jquery";
 
 class Profile extends Component {
   constructor(props) {
@@ -11,6 +12,11 @@ class Profile extends Component {
   }
   handleShow = () => this.setState({ show: true });
   handleHide = () => this.setState({ show: false });
+  updateAvatar = (e) => {
+    e.preventDefault();
+    alert("updated profile picture");
+  };
+  enableUpdateButton = () => $("#update-button").removeClass("d-none");
   render() {
     return (
       <div id="profile">
@@ -23,13 +29,36 @@ class Profile extends Component {
         >
           <Modal.Header closeButton>
             <Modal.Title className="col-11 text-center">
-              <img
-                src="/assets/images/user.jpeg"
-                alt="UserAvatar"
-                className="rounded-circle"
-                width={100}
-                height={100}
-              />
+              <label htmlFor="new-profile-picture">
+                <img
+                  src="/assets/images/user.jpeg"
+                  alt="UserAvatar"
+                  className="rounded-circle"
+                  width={100}
+                  height={100}
+                  style={{ cursor: "pointer" }}
+                />
+              </label>
+              <form onSubmit={() => this.updateAvatar}>
+                <input
+                  className="d-none"
+                  type="file"
+                  name="new-profile-picture"
+                  id="new-profile-picture"
+                  onClick={this.enableUpdateButton}
+                />
+                <button
+                  id="update-button"
+                  className="d-none btn"
+                  style={{
+                    backgroundColor: "rgb(183, 32, 46)",
+                    color: "white",
+                  }}
+                  type="submit"
+                >
+                  Update Profile Picture
+                </button>
+              </form>
             </Modal.Title>
           </Modal.Header>
           <Modal.Body>
