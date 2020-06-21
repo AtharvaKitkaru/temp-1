@@ -17,15 +17,13 @@ class Footer extends Component {
             Project Portal
           </span>
         </div>
-        {$(document).height() > $(window).height() && (
-          <i
-            className="fa fa-arrow-up"
-            id="jump-to-top"
-            data-toggle="tooltip"
-            title="Jump to top"
-            onClick={() => window.scrollTo(0, 0)}
-          ></i>
-        )}
+        <i
+          className="fa fa-arrow-up"
+          id="jump-to-top"
+          data-toggle="tooltip"
+          title="Jump to top"
+          onClick={() => window.scrollTo(0, 0)}
+        ></i>
       </div>
     );
   }
