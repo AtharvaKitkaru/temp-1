@@ -7,9 +7,10 @@ class GroupRegistration extends Component {
   constructor() {
     super();
     this.state = {
-      show: true,
+      show: false,
     };
   }
+  handleShow = () => this.setState({ show: true });
   handleChange = (e) => {
     this.setState({ [e.target.name]: e.target.value });
     if (e.target.name === "leader-roll-number") {

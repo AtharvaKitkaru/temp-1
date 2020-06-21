@@ -11,6 +11,7 @@ import "./Header.scss";
 import $ from "jquery";
 import { Link } from "react-router-dom";
 import Profile from "../../profile/Profile";
+import GroupRegistration from "../../forms/groupRegistration/GroupRegistration";
 
 class Header extends Component {
   constructor(props) {
@@ -19,7 +20,9 @@ class Header extends Component {
       dropdownOpen: false,
     };
   }
-  profileModalRef = ({ handleShow }) => (this.showModal = handleShow);
+  profileModalRef = ({ handleShow }) => (this.showModalProfile = handleShow);
+  groupRegistrationRef = ({ handleShow }) =>
+    (this.showModalGroupRegistration = handleShow);
   componentDidMount() {
     let previousScrollPosition = window.pageYOffset;
     window.onscroll = () => {
@@ -58,6 +61,7 @@ class Header extends Component {
     return (
       <div id="header" className="bg-white shadow-sm noselect mb-4">
         <Profile ref={this.profileModalRef} />
+        <GroupRegistration ref={this.groupRegistrationRef} />
         <Navbar light className="col-lg-12 mx-auto">
           <NavbarBrand href="/">
             <img
@@ -118,12 +122,19 @@ class Header extends Component {
               <Link to="/group-registration">
                 <DropdownItem>
                   <i className="fa fa-fw mr-2 fa-child fa-sm" />
-                  Group Registration
+                  Group Registration Link
                 </DropdownItem>
               </Link>
               <button
                 className="dropdown-item"
-                onClick={() => this.showModal()}
+                onClick={() => this.showModalGroupRegistration()}
+              >
+                <i className="fa fa-fw mr-2 fa-child fa-sm" />
+                Group Registration Modal
+              </button>
+              <button
+                className="dropdown-item"
+                onClick={() => this.showModalProfile()}
               >
                 <i className="fa fa-fw mr-2 fa-user fa-sm" />
                 Profile
