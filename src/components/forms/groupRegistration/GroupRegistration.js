@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import { Modal } from "react-bootstrap";
+import { Modal, Form, FormGroup } from "react-bootstrap";
 import "./GroupRegistration.scss";
+import { Input, Label, Button } from "reactstrap";
 
 class GroupRegistration extends Component {
   constructor() {
@@ -11,6 +12,11 @@ class GroupRegistration extends Component {
   }
   handleChange = (e) => {
     this.setState({ [e.target.name]: e.target.value });
+    if (e.target.name === "leader-roll-number") {
+      if (e.target.value <= 1610000 || e.target.value >= 2010000) {
+        console.error("Invalid roll number");
+      }
+    }
   };
   handleSubmit = (e) => {
     e.preventDefault();
@@ -19,7 +25,6 @@ class GroupRegistration extends Component {
     return (
       <Modal
         backdrop
-        scrollable
         centered
         show={this.state.show}
         onHide={() => this.setState({ show: false })}
@@ -28,14 +33,14 @@ class GroupRegistration extends Component {
           <div className="h4 col-11 text-center">Group Registration</div>
         </Modal.Header>
         <Modal.Body>
-          <form
+          <Form
             onSubmit={this.handleSubmit}
             id="group-registration"
             className="col-10 mx-auto"
           >
-            <div className="form-group">
-              <label htmlFor="leader-roll-number">Leader Roll number</label>
-              <input
+            <FormGroup>
+              <Label htmlFor="leader-roll-number">Leader Roll number</Label>
+              <Input
                 type="number"
                 className="form-control"
                 id="leader-roll-number"
@@ -44,10 +49,10 @@ class GroupRegistration extends Component {
                 onChange={this.handleChange}
                 required
               />
-            </div>
-            <div className="form-group">
-              <label htmlFor="leader-name">Leader name</label>
-              <input
+            </FormGroup>
+            <FormGroup>
+              <Label htmlFor="leader-name">Leader name</Label>
+              <Input
                 type="text"
                 className="form-control"
                 id="leader-name"
@@ -55,10 +60,10 @@ class GroupRegistration extends Component {
                 onChange={this.handleChange}
                 required
               />
-            </div>
-            <div className="form-group">
-              <label htmlFor="leader-email">Leader email</label>
-              <input
+            </FormGroup>
+            <FormGroup>
+              <Label htmlFor="leader-email">Leader email</Label>
+              <Input
                 type="email"
                 className="form-control"
                 id="leader-email"
@@ -66,17 +71,18 @@ class GroupRegistration extends Component {
                 onChange={this.handleChange}
                 required
               />
-            </div>
-            <button
+            </FormGroup>
+            <Button
               style={{
                 backgroundColor: "rgb(183, 32, 46)",
                 color: "white",
               }}
               className="btn shadow-sm"
+              type="submit"
             >
               Submit
-            </button>
-          </form>
+            </Button>
+          </Form>
         </Modal.Body>
       </Modal>
     );
