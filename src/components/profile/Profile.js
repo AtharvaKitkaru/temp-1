@@ -41,6 +41,8 @@ class Profile extends Component {
                   width={100}
                   height={100}
                   style={{ cursor: "pointer" }}
+                  data-toggle="tooltip"
+                  title="Click to update profile picture"
                 />
               </label>
               <form onSubmit={this.updateAvatar}>
@@ -57,6 +59,7 @@ class Profile extends Component {
                   style={{
                     backgroundColor: "rgb(183, 32, 46)",
                     color: "white",
+                    boxShadow: "none",
                   }}
                   type="submit"
                 >
