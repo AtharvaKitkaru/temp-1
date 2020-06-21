@@ -22,7 +22,10 @@ class Footer extends Component {
           id="jump-to-top"
           data-toggle="tooltip"
           title="Jump to top"
-          onClick={() => window.scrollTo(0, 0)}
+          onClick={() => {
+            window.scrollTo(0, 0);
+            $("#header").slideDown();
+          }}
         ></i>
       </div>
     );
