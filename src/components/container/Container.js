@@ -7,6 +7,7 @@ import AssignmentDetails from "../assignmentDetails/AssignmentDetails";
 import Grades from "../grades/Grades";
 import Notifications from "../notifications/Notifications";
 import TopBarProgress from "react-topbar-progress-indicator";
+import GroupRegistration from "../forms/groupRegistration/GroupRegistration";
 
 TopBarProgress.config({
   barColors: {
@@ -39,6 +40,7 @@ class Container extends Component {
           <Route path="/assignments" component={AssignmentList} />
           <Route path="/assignment/:id" component={AssignmentDetails} />
           <Route path="/grades" component={Grades} />
+          <Route path="/group-registration" component={GroupRegistration} />
           <Route path="/logout" render={() => alert("Signed out")} />
           <Route path="/notifications">
             <div
