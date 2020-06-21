@@ -8,6 +8,12 @@ class AssignmentList extends Component {
   componentWillUnmount() {
     $("#header").css({ display: "" });
   }
+  checkData = () => {
+    if ($("#notification-list").html().length === 0)
+      $.when($("#notifications-container").remove()).then(
+        $("#assignment-list > div").removeClass("col-lg-8")
+      );
+  };
   render() {
     return (
       <div
@@ -50,11 +56,11 @@ class AssignmentList extends Component {
             id="notification-list"
             className="list-group list-group-flush shadow-sm p-1 rounded"
           >
-            <Notifications notification="1" />
-            <Notifications notification="2" />
-            <Notifications notification="3" />
-            <Notifications notification="4" />
-            <Notifications notification="5" />
+            <Notifications checkData={this.checkData} notification="1" />
+            <Notifications checkData={this.checkData} notification="2" />
+            <Notifications checkData={this.checkData} notification="3" />
+            <Notifications checkData={this.checkData} notification="4" />
+            <Notifications checkData={this.checkData} notification="5" />
           </div>
         </div>
       </div>

@@ -16,11 +16,12 @@ class Notifications extends Component {
       .addClass("fa-angellist");
   };
   componentDidMount() {
+    const that = this;
     $(`#notification-${this.props.notification}`).on("click", () => {
       $(`#notification-${this.props.notification}`).slideUp(
         "fast",
         function () {
-          $(this).remove();
+          $.when($(this).remove()).then(that.props.checkData());
         }
       );
     });
@@ -33,6 +34,7 @@ class Notifications extends Component {
         onClick={this.visit}
         data-toggle="tooltip"
         title="Click to mark done"
+        style={{ cursor: "pointer" }}
       >
         <i className="fa fa-flash fa-fw mr-2"></i>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod culpa hic
