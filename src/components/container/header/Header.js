@@ -125,6 +125,12 @@ class Header extends Component {
                   Group Registration Link
                 </DropdownItem>
               </Link>
+              <Link to="/project-registration">
+                <DropdownItem>
+                  <i className="fa fa-fw mr-2 fa-clipboard fa-sm" />
+                  Project Registration
+                </DropdownItem>
+              </Link>
               <button
                 className="dropdown-item"
                 onClick={() => this.showModalGroupRegistration()}

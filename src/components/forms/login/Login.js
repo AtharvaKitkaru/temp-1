@@ -16,7 +16,7 @@ class Login extends Component {
   render() {
     return (
       <div id="login-container">
-        <form className="form-signin noselect">
+        <form action="/assignments" className="form-signin noselect">
           <div className="row">
             <img
               className="mb-4 mx-auto"
@@ -62,7 +62,12 @@ class Login extends Component {
           </div>
           <button
             className="btn btn-lg btn-block"
-            style={{ backgroundColor: "rgb(183, 32, 46)", color: "white" }}
+            style={{
+              backgroundColor: "rgb(183, 32, 46)",
+              color: "white",
+              outline: "none",
+              boxShadow: "none",
+            }}
             type="submit"
           >
             Sign in
