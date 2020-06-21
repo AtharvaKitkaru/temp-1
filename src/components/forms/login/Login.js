@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./Login.scss";
+import { Link } from "react-router-dom";
 
 class Login extends Component {
   constructor() {
@@ -66,6 +67,12 @@ class Login extends Component {
           >
             Sign in
           </button>
+          <Link
+            to="/forgot-password"
+            style={{ textDecoration: "none", color: "rgb(183, 32, 46)" }}
+          >
+            <div className="my-4 text-center">Forgot your password?</div>
+          </Link>
         </form>
       </div>
     );
