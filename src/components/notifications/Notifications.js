@@ -17,9 +17,12 @@ class Notifications extends Component {
   };
   componentDidMount() {
     $(`#notification-${this.props.notification}`).on("click", () => {
-      $(`#notification-${this.props.notification}`).fadeOut(1200, function () {
-        $(this).remove();
-      });
+      $(`#notification-${this.props.notification}`).slideUp(
+        "fast",
+        function () {
+          $(this).remove();
+        }
+      );
     });
   }
   render() {
