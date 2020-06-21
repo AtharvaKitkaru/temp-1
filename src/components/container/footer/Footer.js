@@ -13,7 +13,7 @@ class Footer extends Component {
               width={26}
               className="mr-2 pb-1"
             />
-            Projects Portal
+            Project Portal
           </span>
         </div>
       </div>

@@ -24,7 +24,7 @@ class Container extends Component {
     };
   }
   componentDidMount() {
-    setTimeout(() => this.setState({ loading: !this.state.loading }), 8000);
+    setTimeout(() => this.setState({ loading: !this.state.loading }), 0);
   }
   render() {
     return (

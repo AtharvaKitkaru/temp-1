@@ -10,6 +10,7 @@ import {
 import "./Header.scss";
 import $ from "jquery";
 import { Link } from "react-router-dom";
+import Profile from "../../profile/Profile";
 
 class Header extends Component {
   constructor(props) {
@@ -18,6 +19,7 @@ class Header extends Component {
       dropdownOpen: false,
     };
   }
+  profileModalRef = ({ handleShow }) => (this.showModal = handleShow);
   componentDidMount() {
     let previousScrollPosition = window.pageYOffset;
     window.onscroll = () => {
@@ -55,6 +57,7 @@ class Header extends Component {
   render() {
     return (
       <div id="header" className="bg-white shadow-sm noselect mb-4">
+        <Profile ref={this.profileModalRef} />
         <Navbar light className="col-lg-12 mx-auto">
           <NavbarBrand href="/">
             <img
@@ -120,7 +123,7 @@ class Header extends Component {
               </Link>
               <button
                 className="dropdown-item"
-                onClick={() => alert("Clicked Profile Button")}
+                onClick={() => this.showModal()}
               >
                 <i className="fa fa-fw mr-2 fa-user fa-sm" />
                 Profile
