@@ -8,12 +8,14 @@ class Profile extends Component {
     super(props);
     this.state = {
       show: false,
+      enableForm: false,
     };
   }
   handleShow = () => this.setState({ show: true });
   handleHide = () => this.setState({ show: false });
   updateAvatar = (e) => {
     e.preventDefault();
+    this.setState({ enableForm: false });
     alert("updated profile picture");
   };
   enableUpdateButton = () => {
@@ -43,29 +45,32 @@ class Profile extends Component {
                   style={{ cursor: "pointer" }}
                   data-toggle="tooltip"
                   title="Click to update profile picture"
+                  onClick={() => this.setState({ enableForm: true })}
                 />
               </label>
-              <form onSubmit={this.updateAvatar}>
-                <input
-                  className="d-none"
-                  type="file"
-                  name="new-profile-picture"
-                  id="new-profile-picture"
-                  onChange={this.enableUpdateButton}
-                />
-                <button
-                  id="update-button"
-                  className="d-none btn"
-                  style={{
-                    backgroundColor: "rgb(183, 32, 46)",
-                    color: "white",
-                    boxShadow: "none",
-                  }}
-                  type="submit"
-                >
-                  Update Profile Picture
-                </button>
-              </form>
+              {this.state.enableForm && (
+                <form onSubmit={this.updateAvatar}>
+                  <input
+                    className="d-none"
+                    type="file"
+                    name="new-profile-picture"
+                    id="new-profile-picture"
+                    onChange={this.enableUpdateButton}
+                  />
+                  <button
+                    id="update-button"
+                    className="d-none btn"
+                    style={{
+                      backgroundColor: "rgb(183, 32, 46)",
+                      color: "white",
+                      boxShadow: "none",
+                    }}
+                    type="submit"
+                  >
+                    Update Profile Picture
+                  </button>
+                </form>
+              )}
             </Modal.Title>
           </Modal.Header>
           <Modal.Body>
