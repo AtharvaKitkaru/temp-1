@@ -5,7 +5,6 @@ import { Switch, Route, Redirect } from "react-router-dom";
 import AssignmentList from "../assignmentsList/AssignmentList";
 import AssignmentDetails from "../assignmentDetails/AssignmentDetails";
 import Grades from "../grades/Grades";
-import Notifications from "../notifications/Notifications";
 import TopBarProgress from "react-topbar-progress-indicator";
 import GroupRegistrationLink from "../forms/groupRegistrationLink/GroupRegistrationLink";
 import Login from "../forms/login/Login";
@@ -46,30 +45,7 @@ class Container extends Component {
           <Route path="/grades" component={Grades} />
           <Route path="/group-registration" component={GroupRegistrationLink} />
           <Route path="/logout" render={() => alert("Signed out")} />
-          <Route path="/notifications">
-            <div
-              id="notifications-container"
-              className="col-12 text-center my-4"
-            >
-              <div
-                className="shadow rounded p-1 mt-2 mb-4"
-                style={{ background: "rgb(183, 32, 46)", color: "white" }}
-              >
-                <i className="fa fa-bell fa-fw mr-1" />
-                Notifications
-              </div>
-              <div
-                id="notification-list"
-                className="list-group list-group-flush shadow-sm p-1 rounded"
-              >
-                <Notifications notification="1" />
-                <Notifications notification="2" />
-                <Notifications notification="3" />
-                <Notifications notification="4" />
-                <Notifications notification="5" />
-              </div>
-            </div>
-          </Route>
+          <Route path="/notifications" component={AssignmentList} />
           <Route render={() => <Redirect to="/login" />} />
         </Switch>
         <Footer />
