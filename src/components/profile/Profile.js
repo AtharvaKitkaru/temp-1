@@ -16,7 +16,11 @@ class Profile extends Component {
     e.preventDefault();
     alert("updated profile picture");
   };
-  enableUpdateButton = () => $("#update-button").removeClass("d-none");
+  enableUpdateButton = () => {
+    if (document.getElementById("new-profile-picture").files.length !== 0) {
+      $("#update-button").removeClass("d-none");
+    }
+  };
   render() {
     return (
       <div id="profile">
@@ -39,13 +43,13 @@ class Profile extends Component {
                   style={{ cursor: "pointer" }}
                 />
               </label>
-              <form onSubmit={() => this.updateAvatar}>
+              <form onSubmit={this.updateAvatar}>
                 <input
                   className="d-none"
                   type="file"
                   name="new-profile-picture"
                   id="new-profile-picture"
-                  onClick={this.enableUpdateButton}
+                  onChange={this.enableUpdateButton}
                 />
                 <button
                   id="update-button"
