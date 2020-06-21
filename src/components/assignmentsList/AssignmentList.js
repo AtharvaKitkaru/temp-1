@@ -50,12 +50,11 @@ class AssignmentList extends Component {
             id="notification-list"
             className="list-group list-group-flush shadow-sm p-1 rounded"
           >
-            <Notifications />
-            <Notifications />
-            <Notifications />
-            <Notifications />
-            <Notifications />
-            <Notifications />
+            <Notifications notification="1" />
+            <Notifications notification="2" />
+            <Notifications notification="3" />
+            <Notifications notification="4" />
+            <Notifications notification="5" />
           </div>
         </div>
       </div>
