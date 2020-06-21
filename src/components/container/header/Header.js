@@ -145,6 +145,12 @@ class Header extends Component {
                   Log out
                 </DropdownItem>
               </Link>
+              <Link to="/login">
+                <DropdownItem>
+                  <i className="fa fa-fw mr-2 fa-key fa-sm" />
+                  Log in
+                </DropdownItem>
+              </Link>
             </DropdownMenu>
           </Dropdown>
         </Navbar>
