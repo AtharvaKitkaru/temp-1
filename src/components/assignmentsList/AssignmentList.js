@@ -35,6 +35,27 @@ class AssignmentList extends Component {
               <i className="fa fa-list fa-fw mr-1" />
               Assignments
             </div>
+            <form action="/" className="row">
+              <div className="input-group col-12 col-md-8 mx-auto">
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="Search Assignment"
+                  id="search-assignment"
+                />
+                <div className="input-group-append">
+                  <button
+                    className="btn"
+                    style={{
+                      background: "rgb(183, 32, 46)",
+                      color: "white",
+                    }}
+                  >
+                    <i className="fa fa-search" />
+                  </button>
+                </div>
+              </div>
+            </form>
             <div id="assignment-cards-container" className="row">
               <AssignmentCard />
               <AssignmentCard />
