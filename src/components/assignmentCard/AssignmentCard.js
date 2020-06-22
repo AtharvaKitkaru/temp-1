@@ -26,28 +26,36 @@ class AssignmentCard extends Component {
                     {" "}
                     <b>Posted On:</b>
                   </div>
-                  <div className="col-6 text-right">15/6/2020</div>
+                  <div className="col-6 text-right d-flex justify-content-end align-items-end">
+                    15/6/2020
+                  </div>
                 </div>
                 <div className="row">
                   <div className="col-6">
                     {" "}
                     <b>Submission Status:</b>
                   </div>
-                  <div className="col-6 text-right">Not submitted</div>
+                  <div className="col-6 text-right d-flex justify-content-end align-items-end">
+                    Not submitted
+                  </div>
                 </div>
                 <div className="row">
                   <div className="col-6">
                     {" "}
                     <b>Weightage:</b>
                   </div>
-                  <div className="col-6 text-right">25</div>
+                  <div className="col-6 text-right d-flex justify-content-end align-items-end">
+                    25
+                  </div>
                 </div>
                 <div className="row">
                   <div className="col-6">
                     {" "}
                     <b>Posted On:</b>
                   </div>
-                  <div className="col-6 text-right">23/6/2020</div>
+                  <div className="col-6 text-right d-flex justify-content-end align-items-end">
+                    23/6/2020
+                  </div>
                 </div>
               </div>
             </div>
