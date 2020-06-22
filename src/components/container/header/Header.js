@@ -83,24 +83,23 @@ class Header extends Component {
               this.setState({ dropdownOpen: !this.state.dropdownOpen })
             }
           >
-            {/* <DropdownToggle
+            <DropdownToggle
               style={{
                 background: "none",
                 border: "none",
                 boxShadow: "none",
                 cursor: "default",
               }}
-            > */}
-            <img
-              src="/assets/images/user.jpeg"
-              className="rounded-circle dropdown-toggle"
-              data-toggle="dropdown"
-              width={50}
-              height={50}
-              alt="UserAvatar"
-              style={{ cursor: "pointer" }}
-            />
-            {/* </DropdownToggle> */}
+            >
+              <img
+                src="/assets/images/user.jpeg"
+                className="rounded-circle"
+                width={50}
+                height={50}
+                alt="UserAvatar"
+                style={{ cursor: "pointer" }}
+              />
+            </DropdownToggle>
             <DropdownMenu right className="shadow-sm">
               <a className="d-md-none d-block" href="/notifications">
                 <DropdownItem>
