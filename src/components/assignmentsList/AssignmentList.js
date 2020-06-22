@@ -11,7 +11,8 @@ class AssignmentList extends Component {
   }
   checkData = () => {
     if ($("#notification-list").html().length === 0)
-      $.when($("#notifications-container").remove())
+      // $.when($("#notifications-container").remove())
+      $.when($("#notifications-container").removeClass("d-md-block"))
         .then($("#assignment-list > div").removeClass("col-lg-8"))
         .then(
           window.location.pathname === "/notifications"
