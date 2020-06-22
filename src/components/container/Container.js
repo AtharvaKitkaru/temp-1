@@ -40,12 +40,14 @@ class Container extends Component {
         <Switch>
           <Route path="/login" component={Login} />
           <Route path="/project-registration" component={ProjectRegistration} />
-          <Route path="/assignments" component={AssignmentList} />
+          <Route
+            path={["/assignments", "/notifications"]}
+            component={AssignmentList}
+          />
           <Route path="/assignment/:id" component={AssignmentDetails} />
           <Route path="/grades" component={Grades} />
           <Route path="/group-registration" component={GroupRegistrationLink} />
           <Route path="/logout" render={() => alert("Signed out")} />
-          <Route path="/notifications" component={AssignmentList} />
           <Route render={() => <Redirect to="/login" />} />
         </Switch>
         <Footer />
