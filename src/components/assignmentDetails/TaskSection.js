@@ -21,41 +21,32 @@ class TaskSection extends React.Component {
         `<li class="list-group-item mx-auto d-flex flex-row col-12  align-items-center" id="${id}-li" style="border-left: .2em solid rgb(183, 32, 46)">
         <label class="col-11 text-left d-block m-0" style="font: 13px Inter;" for=${id} id="${id}-label"
         >File</label>
-        <i class="fa fa-times col-1 d-block" id="${id}-i"></i>
+        <i class="fa fa-times col-1 d-block" style="cursor: pointer" id="${id}-i"></i>
         <input type="file" class="d-none" id=${id} name=${id} />
         </li>
         `
       )
     )
-      .then(
-        $(`#${id}`).change(function () {
-          $(`#${id}-label`).html(this.files[0].name);
-          $(`#${id}-i`).on("click", that.delete);
-        })
-      )
+      .then($(`#${id}-i`).on("click", that.delete))
       .then(function () {
-        $(`#${id}`).click();
+        $(`#${id}`)
+          .click()
+          .on("change", function () {
+            try {
+              $(`#${id}-label`).html(this.files[0].name);
+              $(`#${id}-label`).removeAttr("for");
+            } catch {
+              $(`#${id}-li`).remove();
+            }
+          });
       })
-      // .then(
-      //   $(`#${id}`)
-      //     .trigger("click")
-      //     .on("change", function() {
-      //       if ($(`#${id}`).files.length === 0) {
-      //         console.log("empty");
-      //         $(`#${id}-li`).remove();
-      //       } else {
-      //         console.log("not empty");
-      //         $(`#${id}-label`).html($(`#${id}`).files[0].name);
-      //         $(`#${id}-i`).on("click", that.delete);
-      //       }
-      //     })
-      // )
       .then(function () {
         that.setState({
           inputCount: that.state.inputCount + 1,
         });
       });
   };
+
   render() {
     return (
       <div className="container p-3 shadow-sm rounded text-center">
