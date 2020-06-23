@@ -1,81 +1,141 @@
-import React from "react";
-import { Form } from "react-bootstrap";
-import { Button } from "react-bootstrap";
+import React, { Component } from "react";
+import "./Profile.scss";
+import { Modal } from "react-bootstrap";
 import $ from "jquery";
-class TaskSection extends React.Component {
-  constructor() {
-    super();
+
+class Profile extends Component {
+  constructor(props) {
+    super(props);
     this.state = {
-      inputCount: 0,
+      show: false,
+      enableForm: false,
     };
   }
-  delete = (e) => $(e.target).parent().remove();
-  inputFile = () => {
-    let that = this;
-    let id = `file-${this.state.inputCount}`;
-    $.when(
-      $("#file-list").append(
-        `<li class="list-group-item row text-left" id="${id}-li">
-        <label class="h6 col-10" for=${id} id="${id}-label"
-        ></label>
-        <input type="file" class="form-control-file" style="display: none" id=${id} name=${id} />
-        <i class="fa fa-times col-1" id="${id}-i"></i>
-        </li>
-        `
-      )
-    )
-      .then(
-        $(`#${id}`)
-          .on("change", function () {
-            if (this.files.length === 0) {
-              console.log("empty");
-              $(`#${id}-li`).remove();
-            } else {
-              console.log("not empty");
-              $(`#${id}-label`).html(this.files[0].name);
-              $(`#${id}-i`).on("click", that.delete);
-            }
-          })
-          .trigger("click")
-      )
-      .then(function () {
-        that.setState({
-          inputCount: that.state.inputCount + 1,
-        });
-      });
+  handleShow = () => this.setState({ show: true });
+  handleHide = () => this.setState({ show: false });
+  updateAvatar = (e) => {
+    e.preventDefault();
+    this.setState({ enableForm: false });
+    alert("updated profile picture");
+  };
+  enableUpdateButton = () => {
+    if (document.getElementById("new-profile-picture").files.length !== 0) {
+      $("#update-button").removeClass("d-none");
+    }
   };
   render() {
     return (
-      <div className="container p-3 shadow-sm rounded text-center">
-        <div>
-          <p className="" style={{ fontWeight: "500", fontSize: "1.2em" }}>
-            Upload Documents
-          </p>
-        </div>
-        <Form style={{ fontSize: "0.8em" }}>
-          <Form.Group className="p-2">
-            <Button
-              id="input-btn"
-              className="w-75"
-              variant="danger"
-              onClick={this.inputFile}
+      <div id="profile">
+        <Modal
+          backdrop
+          centered
+          show={this.state.show}
+          onHide={this.handleHide}
+          className="noselect"
+        >
+          <Modal.Header closeButton>
+            <Modal.Title className="col-11 text-center">
+              <label htmlFor="new-profile-picture">
+                <img
+                  src="/assets/images/user.jpeg"
+                  alt="UserAvatar"
+                  className="rounded-circle"
+                  width={100}
+                  height={100}
+                  style={{ cursor: "pointer" }}
+                  data-toggle="tooltip"
+                  title="Click to update profile picture"
+                  onClick={() => this.setState({ enableForm: true })}
+                />
+              </label>
+              {this.state.enableForm && (
+                <form onSubmit={this.updateAvatar}>
+                  <input
+                    className="d-none"
+                    type="file"
+                    name="new-profile-picture"
+                    id="new-profile-picture"
+                    onChange={this.enableUpdateButton}
+                  />
+                  <button
+                    id="update-button"
+                    className="d-none btn"
+                    style={{
+                      backgroundColor: "rgb(183, 32, 46)",
+                      color: "white",
+                      boxShadow: "none",
+                    }}
+                    type="submit"
+                  >
+                    Update Profile Picture
+                  </button>
+                </form>
+              )}
+            </Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <div
+              className="text-center my-2 col-12 shadow p-1 rounded"
+              style={{
+                backgroundColor: "rgb(183, 32, 46)",
+                color: "white",
+              }}
             >
-              Attach file
-            </Button>
-            <ul className="list-group mt-4" id="file-list">
-              {""}
-            </ul>
-          </Form.Group>
-          <Button
-            type="submit"
-            className="p-2 my-4 shadow w-75"
-            id="upload-files-button"
-          >
-            Submit documents
-          </Button>
-        </Form>
+              <i className="fa fa-user fa-fw mr-2" />
+              Student Details
+            </div>
+            <div className="col-12">
+              <div className="row overflow-auto my-3">
+                <b className="col-6">Name:</b>
+                <div className="col-6 text-select"> Student User</div>
+              </div>
+              <div className="row overflow-auto my-3">
+                <b className="col-6">Semester:</b>
+                <div className="col-6 text-select"> 7</div>
+              </div>
+              <div className="row overflow-auto my-3">
+                <b className="col-6">Roll number:</b>
+                <div className="col-6 text-select"> 18140xx</div>
+              </div>
+              <div className="row overflow-auto my-3">
+                <b className="col-6">Email id :</b>
+                <div className="col-6 text-select"> sample@somaiya.edu</div>
+              </div>
+            </div>
+            <div
+              className="text-center my-2 col-12 shadow p-1 rounded"
+              style={{
+                backgroundColor: "rgb(183, 32, 46)",
+                color: "white",
+              }}
+            >
+              <i className="fa fa-group fa-fw mr-2" />
+              Group Details
+            </div>
+
+            <div className="col-12">
+              <div className="row overflow-auto my-3">
+                <b className="col-6">Group no:</b>
+                <div className="col-6 text-select"> 3</div>
+              </div>
+              <div className="row overflow-auto my-3">
+                <b className="col-6">Project:</b>
+                <div className="col-6 text-select"> Project name here</div>
+              </div>
+              <div className="row overflow-auto my-3">
+                <b className="col-6">Department:</b>
+                <div className="col-6 text-select"> Department name here</div>
+              </div>
+              <div className="row overflow-auto my-3">
+                <b className="col-6">Guide:</b>
+                <div className="col-6 text-select"> Guide name here</div>
+              </div>
+            </div>
+          </Modal.Body>
+        </Modal>
       </div>
     );
   }
 }
-export default TaskSection;
+
+export default Profile;

@@ -9,7 +9,10 @@ class TaskSection extends React.Component {
       inputCount: 0,
     };
   }
-  delete = (id) => $(id).remove();
+  // if input count is decremented, previous Id may overlap
+  delete = (e) => {
+    $(e.target).parent().remove();
+  };
   inputFile = () => {
     let that = this;
     let id = `file-${this.state.inputCount}`;
@@ -26,19 +29,17 @@ class TaskSection extends React.Component {
     )
       .then(
         $(`#${id}`)
-          .click()
           .on("change", function () {
-            console.log(this.files[0]);
-            // console.log(`${id}`);
-            // if ($(this).files.length === 0) {
-            //   console.log("empty");
-            //   $(`#${id}-li`).remove();
-            // } else {
-            //   console.log("not empty");
-            //   $(`#${id}-label`).append(`${$(`#${id}`).files[0].name}`);
-            //   $(`#${id}-i`).attr(this.onclick, this.delete(that.id));
-            // }
+            if (this.files.length === 0) {
+              console.log("empty");
+              $(`#${id}-li`).remove();
+            } else {
+              console.log("not empty");
+              $(`#${id}-label`).html(this.files[0].name);
+              $(`#${id}-i`).on("click", that.delete);
+            }
           })
+          .trigger("click")
       )
       .then(function () {
         that.setState({
@@ -56,8 +57,6 @@ class TaskSection extends React.Component {
         </div>
         <Form style={{ fontSize: "0.8em" }}>
           <Form.Group className="p-2">
-            {/* display the uploaded files here*/}
-            {/* Custom file button */}
             <Button
               id="input-btn"
               className="w-75"
