@@ -1,20 +1,50 @@
 import React from "react";
 import { Form } from "react-bootstrap";
 import { Button } from "react-bootstrap";
+import $ from "jquery";
 class TaskSection extends React.Component {
   constructor() {
     super();
     this.state = {
-      fileNames: [],
+      inputCount: 0,
     };
   }
-  displayFile = () => {
-    let file = document.getElementById("file-input");
-    this.setState({ fileNames: [...this.state.fileNames, file.name] });
-  };
+  delete = (id) => $(id).remove();
   inputFile = () => {
-    document.getElementById("file-input").click();
-    this.displayFile();
+    let that = this;
+    let id = `file-${this.state.inputCount}`;
+    $.when(
+      $("#file-list").append(
+        `<li class="list-group-item row text-left" id="${id}-li">
+        <label class="h6 col-10" for=${id} id="${id}-label"
+        ></label>
+        <input type="file" class="form-control-file" style="display: none" id=${id} name=${id} />
+        <i class="fa fa-times col-1" id="${id}-i"></i>
+        </li>
+        `
+      )
+    )
+      .then(
+        $(`#${id}`)
+          .click()
+          .on("change", function () {
+            console.log(this.files[0]);
+            // console.log(`${id}`);
+            // if ($(this).files.length === 0) {
+            //   console.log("empty");
+            //   $(`#${id}-li`).remove();
+            // } else {
+            //   console.log("not empty");
+            //   $(`#${id}-label`).append(`${$(`#${id}`).files[0].name}`);
+            //   $(`#${id}-i`).attr(this.onclick, this.delete(that.id));
+            // }
+          })
+      )
+      .then(function () {
+        that.setState({
+          inputCount: that.state.inputCount + 1,
+        });
+      });
   };
   render() {
     return (
@@ -36,9 +66,9 @@ class TaskSection extends React.Component {
             >
               Attach file
             </Button>
-            <div style={{ height: "0px", width: "0px", overflow: "hidden" }}>
-              <Form.File id="file-input" />
-            </div>
+            <ul className="list-group mt-4" id="file-list">
+              {""}
+            </ul>
           </Form.Group>
           <Button
             type="submit"
