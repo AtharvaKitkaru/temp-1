@@ -7,9 +7,9 @@ import TaskSection from "./TaskSection";
 class AssignmentDetails extends Component {
   render() {
     return (
-      <div className="container">
+      <div id="assignment-details" className="container">
         <div className="row">
-          <div className="col-12 col-md-3 mx-auto">
+          <div className="col-12 col-md-4 mx-auto">
             <TaskSection />
           </div>
           <div className="col-12 col-md-8 mx-auto">
