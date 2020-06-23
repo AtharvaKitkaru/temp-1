@@ -28,19 +28,28 @@ class TaskSection extends React.Component {
       )
     )
       .then(
-        $(`#${id}`)
-          .trigger("click")
-          .on("change", function () {
-            if (this.files.length === 0) {
-              console.log("empty");
-              $(`#${id}-li`).remove();
-            } else {
-              console.log("not empty");
-              $(`#${id}-label`).html(this.files[0].name);
-              $(`#${id}-i`).on("click", that.delete);
-            }
-          })
+        $(`#${id}`).change(function () {
+          $(`#${id}-label`).html(this.files[0].name);
+          $(`#${id}-i`).on("click", that.delete);
+        })
       )
+      .then(function () {
+        $(`#${id}`).click();
+      })
+      // .then(
+      //   $(`#${id}`)
+      //     .trigger("click")
+      //     .on("change", function() {
+      //       if ($(`#${id}`).files.length === 0) {
+      //         console.log("empty");
+      //         $(`#${id}-li`).remove();
+      //       } else {
+      //         console.log("not empty");
+      //         $(`#${id}-label`).html($(`#${id}`).files[0].name);
+      //         $(`#${id}-i`).on("click", that.delete);
+      //       }
+      //     })
+      // )
       .then(function () {
         that.setState({
           inputCount: that.state.inputCount + 1,
