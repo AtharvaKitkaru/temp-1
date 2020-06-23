@@ -25,11 +25,12 @@ class DetailsSection extends React.Component {
             <span
               style={{
                 color: "rgb(183, 32, 46)",
+                font: "13px Inter",
               }}
             >
               Posted on :
             </span>
-            <span> 22/6/20</span>
+            <span style={{ font: "13px Inter" }}> 22/6/20</span>
           </div>
         </div>
         <hr />
@@ -54,7 +55,7 @@ class DetailsSection extends React.Component {
         <hr />
         <div
           className="row px-2"
-          style={{ fontSize: "0.82em", fontWeight: "370" }}
+          style={{ fontSize: "0.82em", fontWeight: "370", font: "13px Inter" }}
         >
           <div className="col-12 col-md-6 p-1">
             <span style={{ color: "rgb(183, 32, 46)" }}>Due date </span>
