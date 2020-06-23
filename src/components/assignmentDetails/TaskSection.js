@@ -19,16 +19,17 @@ class TaskSection extends React.Component {
     $.when(
       $("#file-list").append(
         `<li class="list-group-item mx-auto col-12 align-items-center" id="${id}-li" style="border-left: .2em solid rgb(183, 32, 46)">
-        <label class="col-10 text-left p-1" style="font: 13px Inter;" for=${id} id="${id}-label"
+        <label class="col-10 text-left" style="font: 13px Inter;" for=${id} id="${id}-label"
         ></label>
-        <input type="file" class="form-control-file" style="display: none" id=${id} name=${id} />
-        <i class="fa fa-times m-auto col-1" id="${id}-i"></i>
+        <input type="file" class="d-none" id=${id} name=${id} />
+        <i class="fa fa-times col-1" id="${id}-i"></i>
         </li>
         `
       )
     )
       .then(
         $(`#${id}`)
+          .trigger("click")
           .on("change", function () {
             if (this.files.length === 0) {
               console.log("empty");
@@ -39,7 +40,6 @@ class TaskSection extends React.Component {
               $(`#${id}-i`).on("click", that.delete);
             }
           })
-          .trigger("click")
       )
       .then(function () {
         that.setState({
