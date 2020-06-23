@@ -1,10 +1,10 @@
-import React from 'react';
+import React from "react";
 
-class CommentSection extends React.Component{
-  render(){
-    return(
+class CommentSection extends React.Component {
+  render() {
+    return (
       <div className="container p-1 shadow-sm">
-          <p className="" >Comment Section</p>
+        <p className="">Comment Section</p>
       </div>
     );
   }
