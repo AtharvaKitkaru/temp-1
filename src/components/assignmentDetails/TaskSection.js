@@ -20,7 +20,7 @@ class TaskSection extends React.Component {
       $("#file-list").append(
         `<li class="list-group-item mx-auto d-flex flex-row col-12  align-items-center" id="${id}-li" style="border-left: .2em solid rgb(183, 32, 46)">
         <label class="col-11 text-left d-block m-0" style="font: 13px Inter;" for=${id} id="${id}-label"
-        >File</label>
+        >Select File</label>
         <i class="fa fa-times col-1 d-block" style="cursor: pointer" id="${id}-i"></i>
         <input type="file" class="d-none" id=${id} name=${id} />
         </li>
@@ -40,6 +40,12 @@ class TaskSection extends React.Component {
             }
           });
       })
+      // todo: on selection dialog close
+      // .then(function() {
+      //   if ($(`#${id}-label`).html() === "Select File") {
+      //     $(`#${id}-li`).remove();
+      //   }
+      // })
       .then(function () {
         that.setState({
           inputCount: that.state.inputCount + 1,
