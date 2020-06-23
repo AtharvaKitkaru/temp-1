@@ -9,7 +9,7 @@ class TaskSection extends React.Component {
       inputCount: 0,
     };
   }
-  // if input count is decremented, previous Id may overlap
+  // if inputCount is decremented, previous Id may overlap.
   delete = (e) => {
     $(e.target).parent().remove();
   };
@@ -18,11 +18,11 @@ class TaskSection extends React.Component {
     let id = `file-${this.state.inputCount}`;
     $.when(
       $("#file-list").append(
-        `<li class="list-group-item row text-left" id="${id}-li">
-        <label class="h6 col-10" for=${id} id="${id}-label"
+        `<li class="list-group-item mx-auto col-12 align-items-center" id="${id}-li" style="border-left: .2em solid rgb(183, 32, 46)">
+        <label class="col-10 text-left p-1" style="font: 13px Inter;" for=${id} id="${id}-label"
         ></label>
         <input type="file" class="form-control-file" style="display: none" id=${id} name=${id} />
-        <i class="fa fa-times col-1" id="${id}-i"></i>
+        <i class="fa fa-times m-auto col-1" id="${id}-i"></i>
         </li>
         `
       )
