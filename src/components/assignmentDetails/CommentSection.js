@@ -27,7 +27,7 @@ class CommentSection extends React.Component {
   handleSubmit = (e) => {
     e.preventDefault();
     alert(this.state.comment);
-    $("#comment").val("");
+    $("#comment").val("").blur();
   };
 
   showButtons = () => {
