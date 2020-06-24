@@ -9,11 +9,18 @@ class TaskSection extends React.Component {
       inputCount: 0,
     };
   }
-  // if inputCount is decremented, previous Id may overlap.
+  handleSubmit = (e) => {
+    e.preventDefault();
+    alert("Files Uploaded");
+  };
+  checkEmpty = () =>
+    $("#file-list")[0].children.length === 0 ? $("#upload-info").hide() : {};
+  // * if inputCount is decremented, previous Id may overlap.
   delete = (e) => {
-    $(e.target).parent().remove();
+    $.when($(e.target).parent().remove()).then(this.checkEmpty());
   };
   inputFile = () => {
+    $("#upload-info").show();
     let that = this;
     let id = `file-${this.state.inputCount}`;
     $.when(
@@ -52,7 +59,6 @@ class TaskSection extends React.Component {
         });
       });
   };
-
   render() {
     return (
       <div className="container p-3 shadow-sm rounded text-center">
@@ -61,7 +67,7 @@ class TaskSection extends React.Component {
             Upload Documents
           </p>
         </div>
-        <Form style={{ fontSize: "0.8em" }}>
+        <Form onSubmit={this.handleSubmit} style={{ fontSize: "0.8em" }}>
           <Form.Group className="p-2">
             <Button
               id="input-btn"
@@ -71,10 +77,17 @@ class TaskSection extends React.Component {
             >
               Attach file
             </Button>
-            <ul className="list-group mt-4" id="file-list">
-              {""}
-            </ul>
+            <ul className="list-group mt-4" id="file-list"></ul>
           </Form.Group>
+          <p
+            id="upload-info"
+            style={{ font: "13px Inter", display: "none" }}
+            className="text-muted"
+          >
+            Executable files cannot be uploaded.
+            <br />
+            Instead upload a text file containing the drive link.
+          </p>
           <Button
             type="submit"
             className="p-2 my-4 shadow w-75"
