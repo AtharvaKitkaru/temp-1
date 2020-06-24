@@ -3,7 +3,7 @@ import React from "react";
 class DetailsSection extends React.Component {
   render() {
     return (
-      <div className="container p-4 shadow-sm text-left">
+      <div className="container p-4 shadow-sm rounded text-left">
         <div className="mb-2">
           <span
             className="lead"

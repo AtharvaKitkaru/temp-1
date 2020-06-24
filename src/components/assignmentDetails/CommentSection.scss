@@ -1,21 +1,17 @@
 #comment-section {
   .form-control {
-    width: 50%;
-    font-size: 1em;
+    font-family: "Inter";
+    outline: none;
+    box-shadow: none;
+    font-size: 0.9em;
     border: none;
-    border-bottom: 0.02em solid rgb(161, 160, 160);
-  }
+    border-radius: 0;
+    border-bottom: 0.02em solid rgb(201, 198, 198);
+    transition: all 0.1s ease;
 
-  .form-control:focus {
-    width: 100%;
-    border-bottom: 0.07em solid rgb(110, 110, 110);
-    transition: 450ms ease-in-out;
-  }
-
-  @media screen and (max-width: 550px) {
-    .form-control {
-      font-size: 0.7em;
-      width: 100%;
+    &:focus {
+      color: black;
+      border-bottom: 0.2em solid rgb(110, 110, 110);
     }
   }
 }
