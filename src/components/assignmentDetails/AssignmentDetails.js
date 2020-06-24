@@ -9,10 +9,10 @@ class AssignmentDetails extends Component {
     return (
       <div id="assignment-details" className="container noselect">
         <div className="d-flex flex-column-reverse flex-md-row">
-          <div className="col-12 col-md-4 mx-auto my-md-0 my-4">
+          <div className="col-12 col-md-4 mx-auto my-md-0 mt-4">
             <TaskSection />
           </div>
-          <div className="col-12 col-md-8 mx-auto my-md-0 my-4">
+          <div className="col-12 col-md-8 mx-auto my-md-0 mt-1">
             <DetailsSection />
           </div>
         </div>

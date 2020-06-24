@@ -34,7 +34,10 @@ class DetailsSection extends React.Component {
           </div>
         </div>
         <hr />
-        <div className="mb-1" style={{ fontSize: "0.89em", fontWeight: "450" }}>
+        <div
+          className="mb-1 text-justify"
+          style={{ fontSize: "0.89em", fontWeight: "450" }}
+        >
           <span>
             Is education residence conveying so so. Suppose shyness say ten
             behaved morning had. Any unsatiable assistance compliment occasional
