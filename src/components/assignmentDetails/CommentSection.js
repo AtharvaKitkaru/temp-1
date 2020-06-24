@@ -1,10 +1,10 @@
 import React from "react";
 import { Form, Button } from "react-bootstrap";
-import "./CommentSection.css";
+import "./CommentSection.scss";
 class CommentSection extends React.Component {
   render() {
     return (
-      <div className="container p-4 shadow-sm">
+      <div id="comment-section" className="container p-4 shadow-sm">
         {/* <Form>
             <Form.Group>
                 <Form.Control className = "input-field w-25 border-light shadow-sm" type="text" placeholder="Add your comment here ..." />
