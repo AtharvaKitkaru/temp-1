@@ -6,7 +6,7 @@ class AssignmentCard extends Component {
   render() {
     return (
       <div id="assignment-card" className="col-md-6 col-12 p-3">
-        <Link to="/assignment/:id">
+        <a href="/assignment/:id">
           <div className="card shadow-sm" style={{ width: "", border: "none" }}>
             <div
               className="card-header card-title text-justify my-auto"
@@ -60,7 +60,7 @@ class AssignmentCard extends Component {
               </div>
             </div>
           </div>
-        </Link>
+        </a>
       </div>
     );
   }
