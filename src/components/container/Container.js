@@ -9,6 +9,7 @@ import TopBarProgress from "react-topbar-progress-indicator";
 import GroupRegistrationLink from "../forms/groupRegistrationLink/GroupRegistrationLink";
 import Login from "../forms/login/Login";
 import ProjectRegistration from "../forms/projectRegistration/ProjectRegistration";
+import $ from "jquery"
 
 TopBarProgress.config({
   barColors: {
@@ -27,6 +28,9 @@ class Container extends Component {
   }
   componentDidMount() {
     setTimeout(() => this.setState({ loading: !this.state.loading }), 0);
+    $(document).ready(function () {
+      $('[data-toggle="tooltip"]').tooltip();
+    });
   }
   render() {
     return (

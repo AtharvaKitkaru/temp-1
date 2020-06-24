@@ -82,11 +82,18 @@ class TaskSection extends React.Component {
           <p
             id="upload-info"
             style={{ font: "13px Inter", display: "none" }}
-            className="text-muted"
+            className="text-muted text-left"
           >
-            Executable files cannot be uploaded.
+            Certain types of files cannot be uploaded.
+            <i
+              className="fa fa-question-circle ml-1"
+              data-toggle="tooltip"
+              data-placement="right"
+              title={`File types that cannot be uploaded: 
+              .ade, .adp, .apk, .appx, .appxbundle, .bat, .cab, .chm, .cmd, .com, .cpl, .dll, .dmg, .exe, .hta, .ins, .isp, .iso, .jar, .js, .jse, .lib, .lnk, .mde, .msc, .msi, .msix, .msixbundle, .msp, .mst, .nsh, .pif, .ps1, .scr, .sct, .shb, .sys, .vb, .vbe, .vbs, .vxd, .wsc, .wsf, .wsh`}
+            ></i>
             <br />
-            Instead upload a text file containing the drive link.
+            In such instances, upload a text file containing the drive link.
           </p>
           <Button
             type="submit"
