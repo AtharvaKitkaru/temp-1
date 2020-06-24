@@ -89,8 +89,11 @@ class TaskSection extends React.Component {
               className="fa fa-question-circle ml-1"
               data-toggle="tooltip"
               data-placement="right"
-              title={`File types that cannot be uploaded: 
-              .ade, .adp, .apk, .appx, .appxbundle, .bat, .cab, .chm, .cmd, .com, .cpl, .dll, .dmg, .exe, .hta, .ins, .isp, .iso, .jar, .js, .jse, .lib, .lnk, .mde, .msc, .msi, .msix, .msixbundle, .msp, .mst, .nsh, .pif, .ps1, .scr, .sct, .shb, .sys, .vb, .vbe, .vbs, .vxd, .wsc, .wsf, .wsh`}
+              data-html={true}
+              title={`<div class="text-justify">
+                  <u><b>File types that cannot be uploaded</b></u><br/>
+                  .ade, .adp, .apk, .appx, .appxbundle, .bat, .cab, .chm, .cmd, .com, .cpl, .dll, .dmg, .exe, .hta, .ins, .isp, .iso, .jar, .js, .jse, .lib, .lnk, .mde, .msc, .msi, .msix, .msixbundle, .msp, .mst, .nsh, .pif, .ps1, .scr, .sct, .shb, .sys, .vb, .vbe, .vbs, .vxd, .wsc, .wsf, .wsh
+                </div>`}
             ></i>
             <br />
             In such instances, upload a text file containing the drive link.
