@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Header from "./header/Header";
-import Footer from "./footer/Footer";
+// import Footer from "./footer/Footer";
 import { Switch, Route, Redirect } from "react-router-dom";
 import AssignmentList from "../assignmentsList/AssignmentList";
 import AssignmentDetails from "../assignmentDetails/AssignmentDetails";
@@ -9,7 +9,7 @@ import TopBarProgress from "react-topbar-progress-indicator";
 import GroupRegistrationLink from "../forms/groupRegistrationLink/GroupRegistrationLink";
 import Login from "../forms/login/Login";
 import ProjectRegistration from "../forms/projectRegistration/ProjectRegistration";
-import $ from "jquery"
+import $ from "jquery";
 
 TopBarProgress.config({
   barColors: {
@@ -54,7 +54,7 @@ class Container extends Component {
           <Route path="/logout" render={() => alert("Signed out")} />
           <Route render={() => <Redirect to="/login" />} />
         </Switch>
-        <Footer />
+        {/* <Footer /> */}
       </div>
     );
   }

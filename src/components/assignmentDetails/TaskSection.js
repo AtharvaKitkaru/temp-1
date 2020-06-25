@@ -146,7 +146,7 @@ class TaskSection extends React.Component {
           >
             Certain types of files cannot be uploaded.
             <i
-              className="fa fa-question-circle ml-1"
+              className="fa fa-question-circle p-1 mr-1"
               data-toggle="tooltip"
               data-placement="right"
               data-html={true}

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./Login.scss";
 import { Link } from "react-router-dom";
+import $ from "jquery";
 
 class Login extends Component {
   constructor() {
@@ -13,6 +14,9 @@ class Login extends Component {
   handleChange = (e) => {
     this.setState({ [e.target.name]: e.target.value });
   };
+  componentDidMount() {
+    $("#header").remove();
+  }
   render() {
     return (
       <div id="login-container">
