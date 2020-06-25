@@ -38,6 +38,10 @@ class CommentSection extends React.Component {
     $("#comment").on("focusout", function () {
       if (this.value === "") $("#button-container").slideUp(400);
     });
+    $(document).on("keydown", function (event) {
+      if (event.key === "Escape")
+        if ($("#comment").is(":focus")) $("#comment").blur();
+    });
   }
 
   render() {
@@ -66,7 +70,7 @@ class CommentSection extends React.Component {
             <button
               id="reset-comment"
               type="reset"
-              class="btn shadow m-2"
+              className="btn shadow m-2"
               onClick={this.cancelComment}
             >
               Cancel
@@ -75,14 +79,16 @@ class CommentSection extends React.Component {
               id="submit-comment"
               disabled={true}
               type="submit"
-              class="btn shadow m-2"
+              className="btn shadow m-2"
             >
               Comment
             </button>
           </div>
         </form>{" "}
-        <div className="my-3">
-          <p>Comments</p>
+        <div id="commentsByUsers">
+          <p className="font-weight-bold" style={{ fontFamily: "Inter" }}>
+            Comments
+          </p>
         </div>
       </div>
     );

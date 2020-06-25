@@ -12,6 +12,41 @@ class TaskSection extends React.Component {
   handleSubmit = (e) => {
     e.preventDefault();
     alert("Files Uploaded");
+    if ($("#upload-files-button").html() === "Turn In") {
+      // To submit
+      $("#upload-files-button")
+        .html("Unsubmit")
+        .css({ backgroundColor: "rgb(183, 32, 46)", color: "white" });
+      $("#input-btn")
+        .prop("disabled", true)
+        .fadeOut(400, function () {
+          // ! if removed then what if user wants to unsubmit?
+          // this.remove();
+          $("#turnedInStatus")
+            .html("Turned In")
+            .fadeIn(400)
+            .css({ padding: "0.66em" });
+        });
+
+      $(".fa.fa-times.col-1.d-block").removeClass("d-block").addClass("d-none");
+    } else {
+      // To unsubmit
+      $("#upload-files-button").html("Turn In").css({
+        backgroundColor: "white",
+        color: "rgb(183, 32, 46)",
+      });
+      $("#turnedInStatus").fadeOut(400, function () {
+        $(this).html("");
+        $("#input-btn")
+          .prop("disabled", false)
+          .fadeIn(400, function () {
+            // ! if removed then what if user wants to unsubmit?
+            // this.remove();
+            $("#turnedInStatus").css({ padding: "0em" });
+          });
+      });
+      $(".fa.fa-times.col-1.d-none").removeClass("d-none").addClass("d-block");
+    }
   };
   checkEmpty = () =>
     $("#file-list")[0].children.length === 0 ? $("#upload-info").hide() : {};
@@ -68,7 +103,7 @@ class TaskSection extends React.Component {
           </p>
         </div>
         <Form onSubmit={this.handleSubmit} style={{ fontSize: "0.8em" }}>
-          <Form.Group className="p-2">
+          <Form.Group>
             <Button
               id="input-btn"
               className="w-75"
@@ -77,6 +112,11 @@ class TaskSection extends React.Component {
             >
               Attach file
             </Button>
+            <p
+              id="turnedInStatus"
+              className="text-muted"
+              style={{ fontFamily: "Inter", fontSize: "1em" }}
+            ></p>
             <ul className="list-group mt-4" id="file-list"></ul>
           </Form.Group>
           <p
@@ -100,10 +140,10 @@ class TaskSection extends React.Component {
           </p>
           <Button
             type="submit"
-            className="p-2 my-4 shadow w-75"
+            className="p-2 shadow w-75"
             id="upload-files-button"
           >
-            Submit documents
+            Turn In
           </Button>
         </Form>
       </div>
