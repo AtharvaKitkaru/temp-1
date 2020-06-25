@@ -7,7 +7,11 @@ import TaskSection from "./TaskSection";
 class AssignmentDetails extends Component {
   render() {
     return (
-      <div id="assignment-details" className="container noselect">
+      <div
+        id="assignment-details"
+        className="container noselect"
+        style={{ fontFamily: "Inter" }}
+      >
         <div className="d-flex flex-column-reverse flex-md-row">
           <div className="col-12 col-md-4 mx-auto my-md-0 mt-4">
             <TaskSection />

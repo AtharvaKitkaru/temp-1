@@ -47,6 +47,12 @@ class CommentSection extends React.Component {
   render() {
     return (
       <div id="comment-section" className="container p-2 rounded shadow-sm">
+        <div
+          className="font-weight-bold col-12 mx-auto pt-md-4 py-2 h5"
+          style={{ fontFamily: "Inter" }}
+        >
+          <div className="col-12 mx-auto text-left">Comments</div>
+        </div>
         <form id="comment-form" className="mt-3" onSubmit={this.handleSubmit}>
           <div className="form-group ml-md-auto col-12">
             <div className="justify-content-right">
@@ -56,7 +62,7 @@ class CommentSection extends React.Component {
                 autoComplete={"off"}
                 name="comment"
                 className="form-control shadow-sm"
-                placeholder="Add your comment here ..."
+                placeholder="Add a comment"
                 onFocus={this.showButtons}
                 onChange={this.handleChange}
               />
@@ -70,7 +76,7 @@ class CommentSection extends React.Component {
             <button
               id="reset-comment"
               type="reset"
-              className="btn shadow m-2"
+              className="btn shadow-sm m-2"
               onClick={this.cancelComment}
             >
               Cancel
@@ -79,16 +85,184 @@ class CommentSection extends React.Component {
               id="submit-comment"
               disabled={true}
               type="submit"
-              className="btn shadow m-2"
+              className="btn shadow-sm m-2"
             >
               Comment
             </button>
           </div>
         </form>{" "}
-        <div id="commentsByUsers">
-          <p className="font-weight-bold" style={{ fontFamily: "Inter" }}>
-            Comments
-          </p>
+        {/* comments section */}
+        <div id="commentsByUsers" className="text-left col-12 mx-auto">
+          <div
+            className="comment-box d-flex flex-column"
+            style={{ fontFamily: "Inter" }}
+          >
+            <div
+              className="commentUser my-2 p-1 text-left row mx-auto align-items-center"
+              id="1"
+            >
+              <div className="col-1">
+                <img
+                  src="/assets/images/user.jpeg"
+                  className="rounded-circle"
+                  width={50}
+                  height={50}
+                  alt="UserAvatar"
+                />
+              </div>
+              <div className="col-11">
+                <div className="">
+                  <div className="font-weight-bold username">Student</div>
+                  <div className="text-muted" style={{ fontSize: "0.8em" }}>
+                    6 hours ago
+                  </div>
+                </div>
+                <div style={{ fontSize: "0.96em" }}>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Commodi placeat corrupti amet perspiciatis voluptatum dolore
+                  reiciendis consequuntur tempora? Placeat a ipsam excepturi
+                  quibusdam molestiae modi consequuntur cum repellendus minima
+                  veritatis!
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            className="comment-box d-flex flex-column"
+            style={{ fontFamily: "Inter" }}
+          >
+            <div
+              className="commentUser my-2 p-1 text-left row mx-auto align-items-center"
+              id="2"
+            >
+              <div className="col-1">
+                <img
+                  src="/assets/images/user.jpeg"
+                  className="rounded-circle"
+                  width={50}
+                  height={50}
+                  alt="UserAvatar"
+                />
+              </div>
+              <div className="col-11">
+                <div className="">
+                  <div className="font-weight-bold username">Student</div>
+                  <div className="text-muted" style={{ fontSize: "0.8em" }}>
+                    6 hours ago
+                  </div>
+                </div>
+                <div style={{ fontSize: "0.96em" }}>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Commodi placeat corrupti amet perspiciatis voluptatum dolore
+                  reiciendis consequuntur tempora? Placeat a ipsam excepturi
+                  quibusdam molestiae modi consequuntur cum repellendus minima
+                  veritatis!
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            className="comment-box d-flex flex-column"
+            style={{ fontFamily: "Inter" }}
+          >
+            <div
+              className="commentUser my-2 p-1 text-left row mx-auto align-items-center"
+              id="3"
+            >
+              <div className="col-1">
+                <img
+                  src="/assets/images/user.jpeg"
+                  className="rounded-circle"
+                  width={50}
+                  height={50}
+                  alt="UserAvatar"
+                />
+              </div>
+              <div className="col-11">
+                <div className="">
+                  <div className="font-weight-bold username">Student</div>
+                  <div className="text-muted" style={{ fontSize: "0.8em" }}>
+                    6 hours ago
+                  </div>
+                </div>
+                <div style={{ fontSize: "0.96em" }}>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Commodi placeat corrupti amet perspiciatis voluptatum dolore
+                  reiciendis consequuntur tempora? Placeat a ipsam excepturi
+                  quibusdam molestiae modi consequuntur cum repellendus minima
+                  veritatis!
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            className="comment-box d-flex flex-column"
+            style={{ fontFamily: "Inter" }}
+          >
+            <div
+              className="commentUser my-2 p-1 text-left row mx-auto align-items-center"
+              id="4"
+            >
+              <div className="col-1">
+                <img
+                  src="/assets/images/user.jpeg"
+                  className="rounded-circle"
+                  width={50}
+                  height={50}
+                  alt="UserAvatar"
+                />
+              </div>
+              <div className="col-11">
+                <div className="">
+                  <div className="font-weight-bold username">Student</div>
+                  <div className="text-muted" style={{ fontSize: "0.8em" }}>
+                    6 hours ago
+                  </div>
+                </div>
+                <div style={{ fontSize: "0.96em" }}>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Commodi placeat corrupti amet perspiciatis voluptatum dolore
+                  reiciendis consequuntur tempora? Placeat a ipsam excepturi
+                  quibusdam molestiae modi consequuntur cum repellendus minima
+                  veritatis!
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            className="comment-box d-flex flex-column"
+            style={{ fontFamily: "Inter" }}
+          >
+            <div
+              className="commentUser my-2 p-1 text-left row mx-auto align-items-center"
+              id="5"
+            >
+              <div className="col-1">
+                <img
+                  src="/assets/images/user.jpeg"
+                  className="rounded-circle"
+                  width={50}
+                  height={50}
+                  alt="UserAvatar"
+                />
+              </div>
+              <div className="col-11">
+                <div className="">
+                  <div className="font-weight-bold username">Student</div>
+                  <div className="text-muted" style={{ fontSize: "0.8em" }}>
+                    6 hours ago
+                  </div>
+                </div>
+                <div style={{ fontSize: "0.96em" }}>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Commodi placeat corrupti amet perspiciatis voluptatum dolore
+                  reiciendis consequuntur tempora? Placeat a ipsam excepturi
+                  quibusdam molestiae modi consequuntur cum repellendus minima
+                  veritatis!
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     );
