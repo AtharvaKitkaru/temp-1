@@ -11,41 +11,61 @@ class TaskSection extends React.Component {
   }
   handleSubmit = (e) => {
     e.preventDefault();
-    alert("Files Uploaded");
-    if ($("#upload-files-button").html() === "Turn In") {
-      // To submit
-      $("#upload-files-button")
-        .html("Unsubmit")
-        .css({ backgroundColor: "rgb(183, 32, 46)", color: "white" });
-      $("#input-btn")
-        .prop("disabled", true)
-        .fadeOut(400, function () {
-          // ! if removed then what if user wants to unsubmit?
-          // this.remove();
-          $("#turnedInStatus")
-            .html("Turned In")
-            .fadeIn(400)
-            .css({ padding: "0.66em" });
-        });
 
-      $(".fa.fa-times.col-1.d-block").removeClass("d-block").addClass("d-none");
-    } else {
-      // To unsubmit
-      $("#upload-files-button").html("Turn In").css({
-        backgroundColor: "white",
-        color: "rgb(183, 32, 46)",
-      });
-      $("#turnedInStatus").fadeOut(400, function () {
-        $(this).html("");
+    if ($("#upload-files-button").html() === "Submit") {
+      // To submit
+      function submit(callback) {
+        if ($("#file-list")[0].children.length === 0) {
+          alert("Empty submission");
+          // after response continue with code below
+        } else {
+          alert("Ask for turn In");
+          callback();
+        }
+      }
+      submit(function () {
+        $("#upload-files-button")
+          .html("Unsubmit")
+          .css({ backgroundColor: "rgb(183, 32, 46)", color: "white" });
         $("#input-btn")
-          .prop("disabled", false)
-          .fadeIn(400, function () {
+          .prop("disabled", true)
+          .fadeOut(400, function () {
             // ! if removed then what if user wants to unsubmit?
             // this.remove();
-            $("#turnedInStatus").css({ padding: "0em" });
+            $("#turnedInStatus")
+              .html("Turned In")
+              .fadeIn(400)
+              .css({ padding: "0.66em" });
           });
+        $(".fa.fa-times.col-1.d-block")
+          .removeClass("d-block")
+          .addClass("d-none");
       });
-      $(".fa.fa-times.col-1.d-none").removeClass("d-none").addClass("d-block");
+    } else {
+      // To unsubmit
+      function unsubmit(callback) {
+        alert("Prompt sure unsubmit?");
+        callback();
+      }
+      unsubmit(function () {
+        $("#upload-files-button").html("Submit").css({
+          backgroundColor: "white",
+          color: "rgb(183, 32, 46)",
+        });
+        $("#turnedInStatus").fadeOut(400, function () {
+          $(this).html("");
+          $("#input-btn")
+            .prop("disabled", false)
+            .fadeIn(400, function () {
+              // ! if removed then what if user wants to unsubmit?
+              // this.remove();
+              $("#turnedInStatus").css({ padding: "0em" });
+            });
+        });
+        $(".fa.fa-times.col-1.d-none")
+          .removeClass("d-none")
+          .addClass("d-block");
+      });
     }
   };
   checkEmpty = () =>
@@ -140,10 +160,10 @@ class TaskSection extends React.Component {
           </p>
           <Button
             type="submit"
-            className="p-2 shadow w-75"
+            className="p-2 shadow-sm w-75"
             id="upload-files-button"
           >
-            Turn In
+            Submit
           </Button>
         </Form>
       </div>
