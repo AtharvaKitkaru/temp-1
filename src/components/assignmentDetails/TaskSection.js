@@ -24,6 +24,14 @@ class TaskSection extends React.Component {
         }
       }
       submit(function () {
+        const filesToBeUploaded = $("#file-list > li > input[type='file']");
+        for (const key in filesToBeUploaded) {
+          if (filesToBeUploaded.hasOwnProperty(key) && !isNaN(+key)) {
+            const element = filesToBeUploaded[key];
+            if (element.files.length === 0) $(element).parent().remove();
+          }
+        }
+
         $("#upload-files-button")
           .html("Unsubmit")
           .css({ backgroundColor: "rgb(183, 32, 46)", color: "white" });
@@ -68,19 +76,21 @@ class TaskSection extends React.Component {
       });
     }
   };
+
   checkEmpty = () =>
     $("#file-list")[0].children.length === 0 ? $("#upload-info").hide() : {};
   // * if inputCount is decremented, previous Id may overlap.
   delete = (e) => {
     $.when($(e.target).parent().remove()).then(this.checkEmpty());
   };
+
   inputFile = () => {
     $("#upload-info").show();
     let that = this;
     let id = `file-${this.state.inputCount}`;
     $.when(
       $("#file-list").append(
-        `<li class="list-group-item mx-auto d-flex flex-row col-12  align-items-center" id="${id}-li" style="border-left: .2em solid rgb(183, 32, 46)">
+        `<li class="list-group-item mx-auto d-none flex-row col-12 align-items-center" id="${id}-li" style="border-left: .2em solid rgb(183, 32, 46);">
         <label class="col-11 text-left d-block m-0" style="font: 13px Inter;" for=${id} id="${id}-label"
         >Select File</label>
         <i class="fa fa-times col-1 d-block" style="cursor: pointer" id="${id}-i"></i>
@@ -95,6 +105,7 @@ class TaskSection extends React.Component {
           .click()
           .on("change", function () {
             try {
+              $(`#${id}-li`).addClass("d-flex");
               $(`#${id}-label`).html(this.files[0].name);
               $(`#${id}-label`).removeAttr("for");
             } catch {
