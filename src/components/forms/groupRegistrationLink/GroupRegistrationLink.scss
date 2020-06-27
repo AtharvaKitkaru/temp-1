@@ -1,4 +1,4 @@
-.container{
+.container {
   border: 1px;
   padding: 1em;
 }
@@ -7,6 +7,12 @@
   margin: 20px 20px 20px 20px;
 }*/
 
-.group-registration{
+.group-registration {
   text-align: center;
+}
+#group-registration-link  {
+  button {
+    outline: none;
+    border: none;
+  }
 }

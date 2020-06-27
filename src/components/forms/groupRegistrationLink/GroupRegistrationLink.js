@@ -9,12 +9,12 @@ class GroupRegistrationLink extends Component {
     this.state =
       JSON.parse(localStorage.getItem("groupRegistrationForm")) || {};
   }
-  handleChange = e => {
+  handleChange = (e) => {
     this.setState({
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
-  handleSubmit = e => {
+  handleSubmit = (e) => {
     e.preventDefault();
     localStorage.setItem("groupRegistrationForm", JSON.stringify(this.state));
   };
@@ -30,7 +30,7 @@ class GroupRegistrationLink extends Component {
               justifyContent: "center",
               alignItems: "center",
               fontWeight: "bold",
-              fontSize: 25
+              fontSize: 25,
             }}
           >
             <p>
@@ -38,13 +38,17 @@ class GroupRegistrationLink extends Component {
             </p>
             {/*<div style={{}} />*/}
           </div>
-          <Form className="group-registration mx-auto my-md-1 mt-1 col-12">
+          <Form
+            onSubmit={this.handleSubmit}
+            className="group-registration mx-auto my-md-1 mt-1 col-12"
+          >
             <div className="row">
               <FormGroup className="col-md-4 col-12">
                 <Label for="nameGL">
                   Group Leader Name<span style={{ color: "red" }}>*</span>
                 </Label>
                 <Input
+                  onChange={this.handleChange}
                   type="text"
                   name="text"
                   id="nameGL"
@@ -57,6 +61,7 @@ class GroupRegistrationLink extends Component {
                   <span style={{ color: "red" }}>*</span>
                 </Label>
                 <Input
+                  onChange={this.handleChange}
                   type="number"
                   name="number"
                   id="rollNumGL"
@@ -68,6 +73,7 @@ class GroupRegistrationLink extends Component {
                   Group Leader Email<span style={{ color: "red" }}>*</span>
                 </Label>
                 <Input
+                  onChange={this.handleChange}
                   type="email"
                   name="email"
                   id="emailIdGl"
@@ -82,6 +88,7 @@ class GroupRegistrationLink extends Component {
                   Member 2 Name<span style={{ color: "red" }}>*</span>
                 </Label>
                 <Input
+                  onChange={this.handleChange}
                   type="text"
                   name="text"
                   id="nameMem2"
@@ -93,6 +100,7 @@ class GroupRegistrationLink extends Component {
                   Member 2 Roll Number<span style={{ color: "red" }}>*</span>
                 </Label>
                 <Input
+                  onChange={this.handleChange}
                   type="number"
                   name="number"
                   id="rollNumMem2"
@@ -104,6 +112,7 @@ class GroupRegistrationLink extends Component {
                   Member 2 Email<span style={{ color: "red" }}>*</span>
                 </Label>
                 <Input
+                  onChange={this.handleChange}
                   type="email"
                   name="email"
                   id="emailIdMem2"
@@ -116,6 +125,7 @@ class GroupRegistrationLink extends Component {
               <FormGroup className="col-md-4 col-12">
                 <Label for="nameMem3">Member 3 Name</Label>
                 <Input
+                  onChange={this.handleChange}
                   type="text"
                   name="text"
                   id="nameMem3"
@@ -125,6 +135,7 @@ class GroupRegistrationLink extends Component {
               <FormGroup className="col-md-4 col-12">
                 <Label for="rollNumMem3">Member 3 Roll Number</Label>
                 <Input
+                  onChange={this.handleChange}
                   type="number"
                   name="number"
                   id="rollNumMem3"
@@ -134,6 +145,7 @@ class GroupRegistrationLink extends Component {
               <FormGroup className="col-md-4 col-12">
                 <Label for="emailIdMem3">Member 3 Email</Label>
                 <Input
+                  onChange={this.handleChange}
                   type="email"
                   name="email"
                   id="emailIdMem3"
@@ -146,6 +158,7 @@ class GroupRegistrationLink extends Component {
               <FormGroup className="col-md-4 col-12">
                 <Label for="nameMem4">Member 4 Name</Label>
                 <Input
+                  onChange={this.handleChange}
                   type="text"
                   name="text"
                   id="nameMem4"
@@ -155,6 +168,7 @@ class GroupRegistrationLink extends Component {
               <FormGroup className="col-md-4 col-12">
                 <Label for="rollNumMem4">Member 4 Roll Number</Label>
                 <Input
+                  onChange={this.handleChange}
                   type="number"
                   name="number"
                   id="rollNumMem4"
@@ -164,6 +178,7 @@ class GroupRegistrationLink extends Component {
               <FormGroup className="col-md-4 col-12">
                 <Label for="emailIdMem4">Member 4 Email</Label>
                 <Input
+                  onChange={this.handleChange}
                   type="email"
                   name="email"
                   id="emailIdMem4"
@@ -176,7 +191,7 @@ class GroupRegistrationLink extends Component {
               style={{
                 display: "flex",
                 justifyContent: "center",
-                alignItems: "center"
+                alignItems: "center",
               }}
             >
               <Button
@@ -185,7 +200,7 @@ class GroupRegistrationLink extends Component {
                   backgroundColor: "rgb(183, 32, 46)",
                   color: "white",
                   outline: "none",
-                  boxShadow: "none"
+                  boxShadow: "none",
                 }}
                 type="submit"
               >
