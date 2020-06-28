@@ -5,19 +5,18 @@ import {
   Dropdown,
   DropdownToggle,
   DropdownItem,
-  DropdownMenu,
+  DropdownMenu
 } from "reactstrap";
 import "./Header.scss";
 import $ from "jquery";
 import { Link } from "react-router-dom";
 import Profile from "../../profile/Profile";
-import GroupRegistration from "../../forms/groupRegistration/GroupRegistration";
 
 class Header extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      dropdownOpen: false,
+      dropdownOpen: false
     };
   }
   profileModalRef = ({ handleShow }) => (this.showModalProfile = handleShow);
@@ -29,10 +28,10 @@ class Header extends Component {
       let currentScrollPosition = window.pageYOffset;
       if (currentScrollPosition > $("#header").height() / 3) {
         if (currentScrollPosition < previousScrollPosition) {
-          $("#header").slideDown();
+          $("#header").fadeIn();
           if ($(window).width() >= 992) {
             $("#assignment-list > #notifications-container").css({
-              transform: "translateY(0em)",
+              transform: "translateY(0em)"
             });
             $(
               "#assignment-list > #notifications-container > #notification-list"
@@ -42,11 +41,11 @@ class Header extends Component {
           !$("#header").is(":hover") &&
           !$(".dropdown-menu").is(":hover")
         ) {
-          $("#header").slideUp();
+          $("#header").fadeOut();
           $(".dropdown-menu").removeClass("show");
           if ($(window).width() >= 992) {
             $("#assignment-list > #notifications-container").css({
-              transform: "translateY(-4em)",
+              transform: "translateY(-4em)"
             });
             $(
               "#assignment-list > #notifications-container > #notification-list"
@@ -61,7 +60,6 @@ class Header extends Component {
     return (
       <div id="header" className="bg-white shadow-sm noselect mb-4">
         <Profile ref={this.profileModalRef} />
-        <GroupRegistration ref={this.groupRegistrationRef} />
         <Navbar light className="col-lg-12 mx-auto">
           <NavbarBrand href="/">
             <img
@@ -88,7 +86,7 @@ class Header extends Component {
                 background: "none",
                 border: "none",
                 boxShadow: "none",
-                cursor: "default",
+                cursor: "default"
               }}
             >
               <img
@@ -122,22 +120,15 @@ class Header extends Component {
               <Link to="/group-registration">
                 <DropdownItem>
                   <i className="fa fa-fw mr-2 fa-child fa-sm" />
-                  Group Registration Link
+                  Edit Group Registration Data
                 </DropdownItem>
               </Link>
               <Link to="/project-registration">
                 <DropdownItem>
-                  <i className="fa fa-fw mr-2 fa-clipboard fa-sm" />
-                  Project Registration
+                  <i className="fa fa-fw mr-2 fa-child fa-sm" />
+                  Edit Project Registration Data
                 </DropdownItem>
               </Link>
-              <button
-                className="dropdown-item"
-                onClick={() => this.showModalGroupRegistration()}
-              >
-                <i className="fa fa-fw mr-2 fa-child fa-sm" />
-                Group Registration Modal
-              </button>
               <button
                 className="dropdown-item"
                 onClick={() => this.showModalProfile()}
@@ -149,12 +140,6 @@ class Header extends Component {
                 <DropdownItem>
                   <i className="fa fa-fw mr-2 fa-lock fa-sm" />
                   Log out
-                </DropdownItem>
-              </Link>
-              <Link to="/login">
-                <DropdownItem>
-                  <i className="fa fa-fw mr-2 fa-key fa-sm" />
-                  Log in
                 </DropdownItem>
               </Link>
             </DropdownMenu>

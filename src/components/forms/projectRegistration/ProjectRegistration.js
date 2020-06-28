@@ -2,11 +2,12 @@ import React, { Component } from "react";
 import "./ProjectRegistration.scss";
 import { Form, FormGroup, Label, Input } from "reactstrap";
 import { Button } from "reactstrap";
+import { Redirect } from 'react-router-dom';
 
 class ProjectRegistration extends Component {
   constructor() {
     super();
-    this.state = JSON.parse(localStorage.getItem("projectRegistration")) || {};
+    this.state = JSON.parse(localStorage.getItem("projectRegistrationFormData")) || {};
   }
 
   handleChange = e => {
@@ -18,14 +19,24 @@ class ProjectRegistration extends Component {
   };
   handleSubmit = e => {
     e.preventDefault();
-    localStorage.setItem("projectRegistration", JSON.stringify(this.state));
-    this.setState({ successfulSubmission: true });
+    localStorage.setItem("projectRegistrationFormData", JSON.stringify(this.state));
+    this.setState({successfulSubmission:true});
   };
+
   handlePrevClick = () => {
-    localStorage.setItem("projectRegistration", JSON.stringify(this.state));
-    this.setState({ prevPagePermit: true });
+    // console.log('inside prev click');
+    localStorage.setItem("projectRegistrationFormData", JSON.stringify(this.state));
+    this.setState({prevPageRedirect:true})
   };
   render() {
+
+    if(this.state.prevPageRedirect){
+      return <Redirect to = '/group-registration' />
+    }
+    if(this.state.successfulSubmission){
+      return <Redirect to = '/waiting-page' />
+    }
+
     return (
       //<div>
       //<div style={{ margin: "2em" }} />
@@ -40,6 +51,7 @@ class ProjectRegistration extends Component {
               fontSize: 25
             }}
           >
+           
             <p>
               <u>Project Registration</u>
             </p>
@@ -172,25 +184,31 @@ class ProjectRegistration extends Component {
               </FormGroup>
             </div>
             <br />
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center"
-              }}
-            >
-              <Button
-                className="btn"
-                style={{
-                  backgroundColor: "rgb(183, 32, 46)",
-                  color: "white",
-                  outline: "none",
-                  boxShadow: "none"
-                }}
-                type="submit"
-              >
-                Submit
-              </Button>
+            <div style={{display: "flex",justifyContent: "center",alignItems: "center"}} className = "row mx-auto">
+
+
+              <div className = "col-12 col-md-4 p-1">
+                <Button className="btn" style={{backgroundColor: "rgb(183, 32, 46)",color: "white",outline: "none",boxShadow: "none"}} type="button" onClick={this.handlePrevClick}>
+                  Go to previous page
+                </Button>
+              </div>
+              
+              <div className = "col-12 col-md-4 p-1">
+                <Button
+                  className="btn"
+                  style={{
+                    backgroundColor: "rgb(183, 32, 46)",
+                    color: "white",
+                    outline: "none",
+                    boxShadow: "none"
+                  }}
+                  type="submit"
+                >
+                  Submit
+                </Button>
+              </div>
+
+              
             </div>
           </Form>
         </div>
