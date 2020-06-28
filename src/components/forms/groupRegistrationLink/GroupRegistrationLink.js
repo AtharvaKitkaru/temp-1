@@ -2,12 +2,13 @@ import React, { Component } from "react";
 import "./GroupRegistrationLink.scss";
 import { Form, FormGroup, Label, Input } from "reactstrap";
 import { Button } from "reactstrap";
+import { Redirect } from 'react-router-dom';
 
 class GroupRegistrationLink extends Component {
   constructor() {
     super();
     this.state =
-      JSON.parse(localStorage.getItem("groupRegistrationForm")) || {};
+      JSON.parse(localStorage.getItem("groupRegistrationFormData")) || {};
   }
   handleChange = (e) => {
     this.setState({
@@ -16,12 +17,22 @@ class GroupRegistrationLink extends Component {
   };
   handleSubmit = (e) => {
     e.preventDefault();
-    localStorage.setItem("groupRegistrationForm", JSON.stringify(this.state));
+    console.log(this.state);
+    localStorage.setItem("groupRegistrationFormData", JSON.stringify(this.state));
+    let result = validateForm();
+    if(result){
+      this.setState({successfulSubmission:true});
+    }
+    
   };
   render() {
+    if(this.state.successfulSubmission){
+      return <Redirect to= '/project-registration' />
+    }
     return (
       //<div>
       //<div style={{ margin: "2em" }} />
+      
       <div className="container shadow">
         <div id="group-registration-link">
           <div
@@ -33,6 +44,8 @@ class GroupRegistrationLink extends Component {
               fontSize: 25,
             }}
           >
+
+            
             <p>
               <u>Group Registration</u>
             </p>
@@ -44,39 +57,43 @@ class GroupRegistrationLink extends Component {
           >
             <div className="row">
               <FormGroup className="col-md-4 col-12">
-                <Label for="nameGL">
+                <Label for="group_leader_name">
                   Group Leader Name<span style={{ color: "red" }}>*</span>
                 </Label>
                 <Input
                   onChange={this.handleChange}
                   type="text"
-                  name="text"
-                  id="nameGL"
+                  name="group_leader_name"
+                  id="group_leader_name"
+                  value = {this.state.group_leader_name}
                   placeholder="Enter your name"
+                  
                 />
               </FormGroup>
               <FormGroup className="col-md-4 col-12">
-                <Label for="rollNumGL">
+                <Label for="group_leader_roll">
                   Group Leader Roll Number
                   <span style={{ color: "red" }}>*</span>
                 </Label>
                 <Input
                   onChange={this.handleChange}
                   type="number"
-                  name="number"
-                  id="rollNumGL"
+                  name="group_leader_roll"
+                  id="group_leader_roll"
+                  value = {this.state.group_leader_roll}
                   placeholder="Enter you roll number"
                 />
               </FormGroup>
               <FormGroup className="col-md-4 col-12">
-                <Label for="emailIgGL">
+                <Label for="group_leader_email">
                   Group Leader Email<span style={{ color: "red" }}>*</span>
                 </Label>
                 <Input
                   onChange={this.handleChange}
                   type="email"
-                  name="email"
-                  id="emailIdGl"
+                  name="group_leader_email"
+                  id="group_leader_email"
+                  value = {this.state.group_leader_email}
                   placeholder="Enter your email"
                 />
               </FormGroup>
@@ -90,8 +107,9 @@ class GroupRegistrationLink extends Component {
                 <Input
                   onChange={this.handleChange}
                   type="text"
-                  name="text"
+                  name="nameMem2"
                   id="nameMem2"
+                  value = {this.state.nameMem2}
                   placeholder="Enter your name"
                 />
               </FormGroup>
@@ -102,8 +120,9 @@ class GroupRegistrationLink extends Component {
                 <Input
                   onChange={this.handleChange}
                   type="number"
-                  name="number"
+                  name="rollNumMem2"
                   id="rollNumMem2"
+                  value = {this.state.rollNumMem2}
                   placeholder="Enter you roll number"
                 />
               </FormGroup>
@@ -114,8 +133,9 @@ class GroupRegistrationLink extends Component {
                 <Input
                   onChange={this.handleChange}
                   type="email"
-                  name="email"
+                  name="emailIdMem2"
                   id="emailIdMem2"
+                  value = {this.state.emailIdMem2}
                   placeholder="Enter your email"
                 />
               </FormGroup>
@@ -127,8 +147,9 @@ class GroupRegistrationLink extends Component {
                 <Input
                   onChange={this.handleChange}
                   type="text"
-                  name="text"
+                  name="nameMem3"
                   id="nameMem3"
+                  value = {this.state.nameMem3}
                   placeholder="Enter your name"
                 />
               </FormGroup>
@@ -137,8 +158,9 @@ class GroupRegistrationLink extends Component {
                 <Input
                   onChange={this.handleChange}
                   type="number"
-                  name="number"
+                  name="rollNumMem3"
                   id="rollNumMem3"
+                  value = {this.state.rollNumMem3}
                   placeholder="Enter you roll number"
                 />
               </FormGroup>
@@ -147,8 +169,9 @@ class GroupRegistrationLink extends Component {
                 <Input
                   onChange={this.handleChange}
                   type="email"
-                  name="email"
+                  name="emailIdMem3"
                   id="emailIdMem3"
+                  value = {this.state.emailIdMem3}
                   placeholder="Enter your email"
                 />
               </FormGroup>
@@ -160,8 +183,9 @@ class GroupRegistrationLink extends Component {
                 <Input
                   onChange={this.handleChange}
                   type="text"
-                  name="text"
+                  name="nameMem4"
                   id="nameMem4"
+                  value = {this.state.nameMem4}
                   placeholder="Enter your name"
                 />
               </FormGroup>
@@ -170,8 +194,9 @@ class GroupRegistrationLink extends Component {
                 <Input
                   onChange={this.handleChange}
                   type="number"
-                  name="number"
+                  name="rollNumMem4"
                   id="rollNumMem4"
+                  value = {this.state.rollNumMem4}
                   placeholder="Enter you roll number"
                 />
               </FormGroup>
@@ -180,8 +205,9 @@ class GroupRegistrationLink extends Component {
                 <Input
                   onChange={this.handleChange}
                   type="email"
-                  name="email"
+                  name="emailIdMem4"
                   id="emailIdMem4"
+                  value = {this.state.emailIdMem4}
                   placeholder="Enter your email"
                 />
               </FormGroup>
@@ -206,8 +232,11 @@ class GroupRegistrationLink extends Component {
               >
                 Save and Proceed to Project Registration
               </Button>
+
+             
             </div>
           </Form>
+          
         </div>
       </div>
       //</div>

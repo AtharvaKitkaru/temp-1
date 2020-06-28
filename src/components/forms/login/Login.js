@@ -2,25 +2,35 @@ import React, { Component } from "react";
 import "./Login.scss";
 import { Link } from "react-router-dom";
 import $ from "jquery";
+import { Redirect } from 'react-router-dom';
 
 class Login extends Component {
   constructor() {
     super();
     this.state = {
       username: "student@somaiya.edu",
-      password: "heyleu",
+      password: "heyleu"
     };
   }
-  handleChange = (e) => {
+  handleChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
+  handleSubmit = (e) =>{
+    e.preventDefault();
+    this.setState({successfulSubmission:true});
+  }
   componentDidMount() {
     $("#header").remove();
   }
   render() {
+    if(this.state.successfulSubmission){
+      return <Redirect to = '/group-registration' />
+    }
     return (
       <div id="login-container">
-        <form action="/assignments" className="form-signin noselect">
+        {" "}
+        {/*className="container shadow"*/}
+        <form onSubmit = {this.handleSubmit} className="form-signin noselect">
           <div className="row">
             <img
               className="mb-4 mx-auto"
@@ -70,7 +80,7 @@ class Login extends Component {
               backgroundColor: "rgb(183, 32, 46)",
               color: "white",
               outline: "none",
-              boxShadow: "none",
+              boxShadow: "none"
             }}
             type="submit"
           >

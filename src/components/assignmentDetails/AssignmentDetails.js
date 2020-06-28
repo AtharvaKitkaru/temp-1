@@ -9,7 +9,7 @@ class AssignmentDetails extends Component {
     return (
       <div
         id="assignment-details"
-        className="container noselect"
+        className="container"
         style={{ fontFamily: "Inter" }}
       >
         <div className="d-flex flex-column-reverse flex-md-row">

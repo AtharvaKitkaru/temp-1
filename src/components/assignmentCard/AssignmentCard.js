@@ -51,7 +51,7 @@ class AssignmentCard extends Component {
                 <div className="row">
                   <div className="col-6">
                     {" "}
-                    <b>Posted On:</b>
+                    <b>Due Date:</b>
                   </div>
                   <div className="col-6 text-right d-flex justify-content-end align-items-end">
                     23/6/2020
